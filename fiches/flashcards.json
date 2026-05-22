@@ -13,7 +13,7 @@
     "type": "verbe",
     "tag": "présentations",
     "pos": "verbe",
-    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 16.04, lesson_01_intro"
+    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, Norskkurs 15.04, Norskkurs 16.04, lesson_01_intro"
   },
   {
     "front": "å bo",
@@ -177,11 +177,11 @@
   },
   {
     "front": "i",
-    "back": "dans/à (lieu fermé)",
+    "back": "dans",
     "type": "vocab",
     "tag": "prépositions",
     "pos": "prep",
-    "source": "Fasit oppgaver kap 1"
+    "source": "Fasit oppgaver kap 1, Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
   },
   {
     "front": "på",
@@ -613,7 +613,7 @@
     "type": "verbe",
     "tag": "activités",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 21.05, Norskkurs 23.04"
+    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 02.04, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 21.05, Norskkurs 23.04"
   },
   {
     "front": "å forstå",
@@ -649,11 +649,11 @@
   },
   {
     "front": "å bety",
-    "back": "signifier, vouloir dire",
+    "back": "signifier",
     "type": "verbe",
     "tag": "communication",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 02.04, Norskkurs 08.04"
   },
   {
     "front": "å studere",
@@ -721,11 +721,11 @@
   },
   {
     "front": "ganske",
-    "back": "assez, plutôt",
+    "back": "assez",
     "type": "vocab",
     "tag": "adverbes",
     "pos": "adv",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Hei og velkommen"
   },
   {
     "front": "bra",
@@ -737,11 +737,11 @@
   },
   {
     "front": "flink",
-    "back": "doué, fort (en)",
+    "back": "doué",
     "type": "vocab",
     "tag": "adjectifs",
     "pos": "adj",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 10.04"
   },
   {
     "front": "hyggelig",
@@ -753,7 +753,7 @@
   },
   {
     "front": "en avis",
-    "back": "un journal",
+    "back": "journal",
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
@@ -765,7 +765,7 @@
     "type": "vocab",
     "tag": "activités",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 15.04"
   },
   {
     "front": "mat",
@@ -792,7 +792,7 @@
     "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 08.04"
   },
   {
-    "front": "en lærer",
+    "front": "lærer",
     "back": "un enseignant",
     "type": "vocab",
     "tag": "professions",
@@ -816,7 +816,7 @@
     "source": "Fasit oppgaver Kap 2, Norskkurs 10.04, Norskkurs 23.04"
   },
   {
-    "front": "en student",
+    "front": "student",
     "back": "un étudiant",
     "type": "vocab",
     "tag": "professions",
@@ -904,8 +904,8 @@
     "source": "Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 10.04"
   },
   {
-    "front": "et sykehus",
-    "back": "un hôpital",
+    "front": "sykehus",
+    "back": "hôpital",
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
@@ -913,7 +913,7 @@
   },
   {
     "front": "en frisørsalong",
-    "back": "un salon de coiffure",
+    "back": "salon de coiffure",
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
@@ -937,11 +937,11 @@
   },
   {
     "front": "et verksted",
-    "back": "un atelier, un garage",
+    "back": "un atelier",
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 09.04"
   },
   {
     "front": "en bil",
@@ -1016,8 +1016,8 @@
     "source": "Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 09.04"
   },
   {
-    "front": "et norskkurs",
-    "back": "un cours de norvégien",
+    "front": "norskkurs",
+    "back": "cours de norvégien",
     "type": "vocab",
     "tag": "études",
     "pos": "nom",
@@ -1341,7 +1341,7 @@
     "type": "vocab",
     "tag": "métiers",
     "pos": "nom",
-    "source": "Hei og velkommen, Norskkurs 10.04, Norskkurs 23.04"
+    "source": "Hei og velkommen, Norskkurs 23.04"
   },
   {
     "front": "norskkurs",
@@ -1384,8 +1384,8 @@
     "source": "Hei og velkommen"
   },
   {
-    "front": "en pause",
-    "back": "une pause",
+    "front": "pause",
+    "back": "pause",
     "type": "vocab",
     "tag": "école",
     "pos": "nom",
@@ -1520,8 +1520,8 @@
     "source": "Hei og velkommen"
   },
   {
-    "front": "et språk",
-    "back": "une langue",
+    "front": "språk",
+    "back": "langue",
     "type": "vocab",
     "tag": "langue",
     "pos": "nom",
@@ -1592,8 +1592,8 @@
     "source": "Hei og velkommen, Norskkurs 23.04"
   },
   {
-    "front": "et alfabet",
-    "back": "un alphabet",
+    "front": "alfabet",
+    "back": "alphabet",
     "type": "vocab",
     "tag": "langue",
     "pos": "nom",
@@ -1968,8 +1968,8 @@
     "source": "Hei og velkommen"
   },
   {
-    "front": "et øye",
-    "back": "un œil",
+    "front": "øye",
+    "back": "œil",
     "type": "vocab",
     "tag": "corps",
     "pos": "nom",
@@ -2120,8 +2120,8 @@
     "source": "Hei og velkommen, Norskkurs 16.04"
   },
   {
-    "front": "en far",
-    "back": "un père",
+    "front": "far",
+    "back": "père",
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
@@ -2141,7 +2141,7 @@
     "type": "vocab",
     "tag": "adjectifs",
     "pos": "adj",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 02.04"
   },
   {
     "front": "en bar",
@@ -3019,7 +3019,7 @@
     "type": "verbe",
     "tag": "général",
     "pos": "verbe",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 16.04, Samliv_og_familie_i_Norge"
   },
   {
     "front": "å leve",
@@ -3275,7 +3275,7 @@
     "type": "vocab",
     "tag": "adverbe",
     "pos": "adv",
-    "source": "Norskkurs 01.04"
+    "source": "Norskkurs 01.04, Norskkurs 03.04"
   },
   {
     "front": "hei",
@@ -3399,11 +3399,11 @@
   },
   {
     "front": "sykepleier",
-    "back": "infirmier/ère",
+    "back": "un infirmier",
     "type": "vocab",
     "tag": "profession",
     "pos": "nom",
-    "source": "Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Norskkurs 01.04, Norskkurs 02.04, Norskkurs 05.05"
   },
   {
     "front": "Norge",
@@ -4099,7 +4099,7 @@
     "type": "verbe",
     "tag": "verbe",
     "pos": "verbe",
-    "source": "Norskkurs 02.04, Norskkurs 15.04"
+    "source": "Norskkurs 02.04"
   },
   {
     "front": "å bo",
@@ -4131,7 +4131,7 @@
     "type": "verbe",
     "tag": "verbe",
     "pos": "verbe",
-    "source": "Norskkurs 02.04, Norskkurs 08.04"
+    "source": "Norskkurs 02.04"
   },
   {
     "front": "å gjenta",
@@ -5139,7 +5139,7 @@
     "type": "expression",
     "tag": "activités",
     "pos": "verbe",
-    "source": "Norskkurs 08.04, Norskkurs 09.04"
+    "source": "Norskkurs 08.04, Norskkurs 09.04, Norskkurs 22.04"
   },
   {
     "front": "å drikke",
@@ -6423,11 +6423,11 @@
   },
   {
     "front": "en sykepleier",
-    "back": "un(e) infirmier/ière",
+    "back": "un(e) infirmier(e)",
     "type": "vocab",
     "tag": "professions",
     "pos": "nom",
-    "source": "Norskkurs 09.04"
+    "source": "Norskkurs 09.04, Norskkurs 10.04, Norskkurs 21.05"
   },
   {
     "front": "en hjemmesykepleier",
@@ -7679,11 +7679,11 @@
   },
   {
     "front": "en barnehage",
-    "back": "crèche, jardin d'enfants",
+    "back": "une crèche / maternelle",
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
-    "source": "Norskkurs 10.04"
+    "source": "Norskkurs 06.05, Norskkurs 10.04"
   },
   {
     "front": "et sykehus",
@@ -7839,11 +7839,11 @@
   },
   {
     "front": "en venn",
-    "back": "un ami / une amie",
+    "back": "un ami",
     "type": "vocab",
     "tag": "personnes",
     "pos": "nom",
-    "source": "Norskkurs 15.04"
+    "source": "Norskkurs 15.04, Norskkurs 16.04, Norskkurs 22.04"
   },
   {
     "front": "god",
@@ -7959,11 +7959,11 @@
   },
   {
     "front": "middag",
-    "back": "dîner / repas du soir",
+    "back": "dîner",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 15.04"
+    "source": "Norskkurs 15.04, Norskkurs 20.05"
   },
   {
     "front": "her",
@@ -8139,15 +8139,15 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 15.04"
+    "source": "Norskkurs 15.04, Norskkurs 16.04"
   },
   {
     "front": "å like",
-    "back": "aimer bien, apprécier",
+    "back": "aimer bien",
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 15.04, Norskkurs 22.04"
+    "source": "Norskkurs 15.04, Norskkurs 16.04, Norskkurs 21.05, Norskkurs 22.04"
   },
   {
     "front": "å hilse på",
@@ -8291,7 +8291,7 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 15.04"
+    "source": "Norskkurs 05.05, Norskkurs 15.04, Samtaletime 22.05"
   },
   {
     "front": "å leke",
@@ -8995,7 +8995,7 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Norskkurs 21.05"
   },
   {
     "front": "å være glad i",
@@ -9011,7 +9011,7 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 16.04, Norskkurs 21.05"
+    "source": "Norskkurs 16.04"
   },
   {
     "front": "å flytte",
@@ -9087,7 +9087,7 @@
   },
   {
     "front": "en mobil",
-    "back": "un téléphone (portable)",
+    "back": "un téléphone portable",
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
@@ -9163,7 +9163,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Norskkurs 16.04, Norskkurs 22.04"
+    "source": "Norskkurs 16.04"
   },
   {
     "front": "ei venninne",
@@ -9558,15 +9558,15 @@
     "source": "Norskkurs 16.04"
   },
   {
-    "front": "en jus",
-    "back": "un jus",
+    "front": "jus",
+    "back": "jus",
     "type": "vocab",
     "tag": "drikke",
     "pos": "nom",
     "source": "Norskkurs 05.05, Norskkurs 16.04, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
-    "front": "en appelsinjus",
+    "front": "appelsinjus",
     "back": "jus d'orange",
     "type": "vocab",
     "tag": "drikke",
@@ -10895,7 +10895,7 @@
   },
   {
     "front": "et egg",
-    "back": "un œuf",
+    "back": "œuf",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
@@ -11795,7 +11795,7 @@
     "type": "vocab",
     "tag": "cuisine",
     "pos": "nom",
-    "source": "Norskkurs 05.05"
+    "source": "Norskkurs 05.05, Samtaletime 22.05"
   },
   {
     "front": "ei avis",
@@ -11807,7 +11807,7 @@
   },
   {
     "front": "en ostehøvel",
-    "back": "un rabot à fromage",
+    "back": "rabot à fromage",
     "type": "vocab",
     "tag": "cuisine",
     "pos": "nom",
@@ -11879,15 +11879,15 @@
   },
   {
     "front": "et syltetøy",
-    "back": "de la confiture",
+    "back": "une confiture",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
     "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
   },
   {
-    "front": "et smør",
-    "back": "du beurre",
+    "front": "smør",
+    "back": "beurre",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
@@ -12179,7 +12179,7 @@
     "type": "vocab",
     "tag": "prépositions",
     "pos": "prep",
-    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 05.05"
   },
   {
     "front": "over",
@@ -13047,7 +13047,7 @@
   },
   {
     "front": "en skinke",
-    "back": "un jambon",
+    "back": "jambon",
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
@@ -13695,11 +13695,11 @@
   },
   {
     "front": "å vaske",
-    "back": "laver, nettoyer",
+    "back": "laver",
     "type": "verbe",
     "tag": "routine",
     "pos": "verbe",
-    "source": "Norskkurs 13.05"
+    "source": "Norskkurs 13.05, Samtaletime 22.05"
   },
   {
     "front": "å ta på klær",
@@ -14038,8 +14038,8 @@
     "source": "Norskkurs 13.05"
   },
   {
-    "front": "en brunost",
-    "back": "un fromage brun norvégien",
+    "front": "brunost",
+    "back": "fromage brun norvégien",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
@@ -14151,7 +14151,7 @@
   },
   {
     "front": "en tomat",
-    "back": "une tomate",
+    "back": "tomate",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
@@ -14159,7 +14159,7 @@
   },
   {
     "front": "en agurk",
-    "back": "un concombre",
+    "back": "concombre",
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",

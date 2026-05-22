@@ -159,43 +159,103 @@ def is_verb(card: dict) -> bool:
 
 
 def normalize_no(s: str) -> str:
-    """Norwegian normalize: lowercase, strip leading 'en/ei/et ' articles."""
+    """Norwegian normalize: lowercase, strip leading 'en/ei/et ' articles, drop trailing parens."""
+    import re
     s = (s or "").strip().lower()
     for prefix in ("en ", "ei ", "et "):
         if s.startswith(prefix):
             s = s[len(prefix):]
             break
+    # drop trailing parens qualifier (form variants, plural, etc.)
+    s = re.sub(r"\s*\([^)]*\)\s*$", "", s).strip()
     return s
 
 
-def dedupe(cards: list[dict]) -> list[dict]:
-    """Merge entries that point to the same word in both languages.
+def primary_fr(s: str) -> str:
+    """Return the first headword from a French side, stripped of variants.
 
-    Key = (norwegian word without article, french word normalized).
-    Different nuances like 'aimer' vs 'aimer (d'amour)' stay separate because the
-    parenthesised qualifier is preserved in the FR normalizer.
+    'un ami / une amie' -> 'ami'
+    'aller, marcher'    -> 'aller' -> 'aller' (normalize_fr handles article)
+    'animal de compagnie' -> kept as-is (no separator).
+    """
+    import re
+    # split on first '/' or ',' that separates synonyms
+    primary = re.split(r"\s*[/,]\s*", s, 1)[0]
+    return normalize_fr(primary)
+
+
+def dedupe(cards: list[dict]) -> list[dict]:
+    """Merge entries pointing to the same Norwegian + primary French headword.
+
+    Key = (norsk word without article/parens, FR primary headword).
+    'un ami' + 'un ami / une amie' both map to key=('venn', 'ami') → merged.
+    'aimer' vs 'aimer (d'amour)' stay distinct because parens are preserved
+    when they come INSIDE the FR text (not at start).
     """
     seen = {}
     for c in cards:
-        key = (normalize_no(c.get("front", "")), normalize_fr(c.get("back", "")))
+        key = (normalize_no(c.get("front", "")), primary_fr(c.get("back", "")))
         if key not in seen:
             seen[key] = c
         else:
             existing = seen[key]
-            srcs = set(filter(None,
-                [existing.get("source", ""), c.get("source", "")]
-            ))
-            # split comma-separated sources to dedupe
+            srcs = set(filter(None, [existing.get("source", ""), c.get("source", "")]))
             all_srcs = set()
             for s in srcs:
                 all_srcs.update(p.strip() for p in s.split(",") if p.strip())
             existing["source"] = ", ".join(sorted(all_srcs))
+            # Prefer the entry with shorter/cleaner back (e.g. 'un ami' over 'un ami / une amie')
+            if len((c.get("back") or "")) < len((existing.get("back") or "")):
+                existing["back"] = c["back"]
+            if len((c.get("front") or "")) < len((existing.get("front") or "")):
+                existing["front"] = c["front"]
     return list(seen.values())
+
+
+def merge_by_primary_fr(cards: list[dict]) -> list[dict]:
+    """Group cards sharing the same primary FR headword. Concat the Norwegian variants."""
+    grouped: dict = {}
+    for c in cards:
+        key = primary_fr(c.get("back", ""))
+        if not key:
+            grouped.setdefault(("__nokey__", c.get("back", ""), c.get("front", "")), []).append(c)
+            continue
+        grouped.setdefault(key, []).append(c)
+    out = []
+    for key, group in grouped.items():
+        if len(group) == 1:
+            out.append(group[0])
+            continue
+        base = dict(group[0])
+        # collect unique norwegian variants, preserve original surface form
+        seen_norm = set()
+        variants = []
+        for c in group:
+            norm = normalize_no(c.get("front", ""))
+            if norm in seen_norm:
+                continue
+            seen_norm.add(norm)
+            variants.append(c.get("front", "").strip())
+        base["front"] = " / ".join(variants)
+        # prefer the shortest FR back (less cluttered)
+        backs = sorted({c.get("back", "").strip() for c in group}, key=len)
+        base["back"] = backs[0]
+        # merge sources
+        all_srcs = set()
+        for c in group:
+            for p in (c.get("source", "") or "").split(","):
+                p = p.strip()
+                if p:
+                    all_srcs.add(p)
+        base["source"] = ", ".join(sorted(all_srcs))
+        out.append(base)
+    return out
 
 
 def build_recap_vocab(cards: list[dict]) -> str:
     vocab = [c for c in cards if is_valid_entry(c) and not is_verb(c) and c.get("type") in (None, "vocab", "verbe")]
     vocab = dedupe(vocab)
+    vocab = merge_by_primary_fr(vocab)
     numbers = [c for c in vocab if is_number_entry(c)]
     words = [c for c in vocab if not is_number_entry(c)]
     words.sort(key=lambda c: normalize_fr(c.get("back", "")))
@@ -251,6 +311,7 @@ def build_recap_vocab(cards: list[dict]) -> str:
 def build_recap_verbs(cards: list[dict]) -> str:
     verbs = [c for c in cards if is_verb(c)]
     verbs = dedupe(verbs)
+    verbs = merge_by_primary_fr(verbs)
     verbs.sort(key=lambda c: normalize_fr(c.get("back", "")))
     lines = [
         "---",

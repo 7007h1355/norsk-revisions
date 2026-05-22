@@ -6,7 +6,7 @@ updated: 2026-05-22
 
 # 📚 Récapitulatif vocabulaire
 
-_872 mots + 28 nombres, triés par traduction française. Auto-régénéré à chaque ajout de leçon._
+_821 mots + 28 nombres, triés par traduction française. Auto-régénéré à chaque ajout de leçon._
 
 ## Mots
 
@@ -21,11 +21,10 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | Allemagne | Tyskland | nom | Fasit oppgaver kap 1 (+1) |
 | allemand | tysk | nom | Fasit oppgaver Kap 2 (+3) |
 | alors | da | adv | Hei og velkommen (+1) |
-| un alphabet | et alfabet | nom | Hei og velkommen (+1) |
-| un ami | en venn | nom | Norskkurs 16.04 (+1) |
+| alphabet | alfabet | nom | Hei og velkommen (+1) |
+| un ami | en venn | nom | Norskkurs 15.04 (+2) |
 | une amie | ei venninne | nom | Norskkurs 16.04 |
 | une amitié | et vennskap | nom | Norskkurs 09.04 |
-| un ami / une amie | en venn | nom | Norskkurs 15.04 |
 | amour | kjærlighet | nom | Norskkurs 09.04 (+1) |
 | amoureux | forelsket | adj | Samliv_og_familie_i_Norge |
 | anglais | engelsk | nom | Fasit oppgaver Kap 2 (+4) |
@@ -41,21 +40,18 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | arabe | arabisk | nom | Fasit oppgaver Kap 2 (+2) |
 | arbres | trær | nom | Hei og velkommen |
 | un argument | et argument | nom | Norskkurs 09.04 |
-| un arrêt (de bus) | en holdeplass | nom | Samtaletime 22.05 |
-| un arrêt de bus | et busstopp | nom | Samtaletime 22.05 |
+| un arrêt de bus | en holdeplass / et busstopp | nom | Samtaletime 22.05 |
 | une arrière-grand-mère | ei oldemor | nom | Norskkurs 06.05 |
 | un arrière-grand-père | en oldefar | nom | Norskkurs 06.05 |
 | un arrière-petit-enfant | et oldebarn | nom | Norskkurs 06.05 |
 | un artiste | en kunstner | nom | Norskkurs 09.04 |
-| assez | ganske | adv | Hei og velkommen |
-| assez, plutôt | ganske | adv | Fasit oppgaver Kap 2 |
+| assez | ganske | adv | Fasit oppgaver Kap 2 (+1) |
 | une assiette | en tallerken | nom | Norskkurs 05.05 (+2) |
 | un assistant | en assistent | nom | Norskkurs 09.04 |
 | un assistant de crèche | en barnehageassistent | nom | Fasit oppgaver Kap 2 |
 | assoiffé | tørst | adj | Norskkurs 05.05 |
-| à/sur | på | prep | Fasit oppgaver kap 1 |
-| un atelier | et verksted | nom | Norskkurs 09.04 |
-| un atelier, un garage | et verksted | nom | Fasit oppgaver Kap 2 |
+| à/sur | på / i | prep | Fasit oppgaver kap 1 (+1) |
+| un atelier | et verksted | nom | Fasit oppgaver Kap 2 (+1) |
 | attente, espérance | forventning | nom | Samliv_og_familie_i_Norge |
 | au-dessus | over | prep | Norskkurs 05.05 (+1) |
 | aujourd'hui | i dag | adv | Norskkurs 09.04 |
@@ -70,10 +66,9 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un banc / plan de travail | en benk | nom | Norskkurs 05.05 |
 | un bar | en bar | nom | Hei og velkommen |
 | un bâtiment | en bygning | nom | Norskkurs 09.04 |
-| beau, agréable | fin | adj | Norskkurs 02.04 |
 | beaucoup | mye | adv | Norskkurs 03.04 (+1) |
 | un beau-frère | en svoger | nom | Norskkurs 06.05 |
-| beau, joli | fin | adj | Hei og velkommen |
+| beau, joli | fin | adj | Hei og velkommen (+1) |
 | un beau-père | en svigerfar | nom | Norskkurs 06.05 |
 | beau-père (famille recomposée) | bonusfar | nom | Norskkurs 06.05 |
 | beaux-parents | svigerforeldre | nom | Norskkurs 06.05 |
@@ -82,10 +77,9 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | Bergen | Bergen | nom | Fasit oppgaver kap 1 |
 | Berlin | Berlin | nom | Fasit oppgaver kap 1 |
 | bête | dum | adj | Hei og velkommen |
-| du beurre | et smør | nom | Norskkurs 05.05 (+2) |
+| beurre | smør | nom | Norskkurs 05.05 (+2) |
 | une bibliothèque | et bibliotek | nom | Norskkurs 09.04 |
-| bien | bra | adv | Fasit oppgaver Kap 2 (+1) |
-| bien | godt | adv | Norskkurs 01.04 |
+| bien | bra / godt | adv | Fasit oppgaver Kap 2 (+2) |
 | bientôt | snart | adv | Norskkurs 15.04 |
 | bienvenue | velkommen | interj | Fasit oppgaver kap 1 (+1) |
 | bière | øl | nom | Fasit oppgaver Kap 2 (+2) |
@@ -124,10 +118,8 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un bureau | et kontor | nom | Norskkurs 06.05 (+1) |
 | un bus | en buss | nom | Norskkurs 21.05 |
 | un but / objectif | et mål | nom | Norskkurs 09.04 |
-| un cadeau | en gave | nom | Norskkurs 15.04 (+1) |
-| un cadeau | en presang | nom | Norskkurs 15.04 |
-| café | kaffe | nom | Fasit oppgaver Kap 2 (+2) |
-| café, bar (lieu) | kafé | nom | Norskkurs 10.04 |
+| un cadeau | en gave / en presang | nom | Norskkurs 15.04 (+1) |
+| café | kaffe / kafé | nom | Fasit oppgaver Kap 2 (+3) |
 | café (boisson) | kaffe | nom | Norskkurs 10.04 |
 | une cafetière (filtre) | en kaffetrakter | nom | Samtaletime 22.05 |
 | un cahier de notes | en notatbok | nom | Samtaletime 22.05 |
@@ -137,8 +129,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une cantine | ei kantine | nom | Norskkurs 06.05 (+1) |
 | un cariste | en truckfører | nom | Fasit oppgaver Kap 2 |
 | célèbre | berømt | adj | Norskkurs 09.04 |
-| célibataire | singel | adj | Norskkurs 06.05 |
-| célibataire, seul(e) | enslig | adj | Samliv_og_familie_i_Norge |
+| célibataire | enslig / singel | adj | Norskkurs 06.05 (+1) |
 | cent (100) | hundre | num | Norskkurs 16.04 (+1) |
 | un centre médical | et legesenter | nom | Norskkurs 10.04 |
 | céréales | kornblandinger | nom | Norskkurs 06.05 (+1) |
@@ -160,8 +151,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un chien | en hund | nom | Norskkurs 06.05 (+1) |
 | Chine | Kina | nom | Fasit oppgaver kap 1 (+2) |
 | chinois | kinesisk | nom | Fasit oppgaver kap 1 (+1) |
-| chips | potetgull | nom | Norskkurs 08.04 (+2) |
-| chips | chips | nom | Norskkurs 16.04 |
+| chips | potetgull / chips | nom | Norskkurs 08.04 (+2) |
 | chocolat | sjokolade | nom | Norskkurs 15.04 |
 | chocolat au lait | en melkesjokolade | nom | Norskkurs 16.04 (+1) |
 | chocolat chaud | kakao | nom | Norskkurs 08.04 |
@@ -179,13 +169,13 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | compléments alimentaires | kosttilskudd | nom | Samtaletime 22.05 |
 | un compositeur | en komponist | nom | Norskkurs 09.04 |
 | une compréhension | en forståelse | nom | Norskkurs 09.04 |
-| un concombre | en agurk | nom | Norskkurs 13.05 (+1) |
+| concombre | en agurk | nom | Norskkurs 13.05 (+1) |
 | concubin(e) | en samboer | nom | Norskkurs 16.04 |
 | concubinage | samboerskap | nom | Samliv_og_familie_i_Norge |
 | un concubin (cohabitant) | en samboer | nom | Norskkurs 06.05 |
 | concubins, cohabitants | samboere | nom | Samliv_og_familie_i_Norge |
 | conduite | kjøring | nom | Norskkurs 09.04 |
-| de la confiture | et syltetøy | nom | Norskkurs 05.05 (+2) |
+| une confiture | et syltetøy | nom | Norskkurs 05.05 (+2) |
 | conjoint | ektefelle | nom | Samliv_og_familie_i_Norge |
 | connu | kjent | adj | Norskkurs 09.04 |
 | une consonne | en konsonant | nom | Hei og velkommen |
@@ -200,9 +190,8 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | la couronne royale | kongekronen | nom | Samliv_og_familie_i_Norge |
 | couronnes (monnaie norvégienne) | kroner | nom | Norskkurs 23.04 |
 | couronnes norvégiennes (NOK) | kroner | nom | Norskkurs 16.04 |
-| un cours | et kurs | nom | Norskkurs 03.04 (+2) |
-| un cours de norvégien | et norskkurs | nom | Fasit oppgaver Kap 2 (+2) |
-| cours, enseignement | undervisning | nom | Hei og velkommen |
+| un cours | undervisning / et kurs | nom | Hei og velkommen (+3) |
+| cours de norvégien | norskkurs | nom | Fasit oppgaver Kap 2 (+2) |
 | un cours (pl. kurs) | et kurs | nom | Norskkurs 16.04 |
 | court | kort | adj | Hei og velkommen |
 | un cousin | en fetter | nom | Norskkurs 06.05 |
@@ -212,8 +201,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | couture | sying | nom | Norskkurs 09.04 |
 | couverts | bestikk | nom | Norskkurs 13.05 |
 | un crayon | en blyant | nom | Samtaletime 22.05 |
-| crèche, jardin d'enfants | en barnehage | nom | Norskkurs 10.04 |
-| une crèche / maternelle | en barnehage | nom | Norskkurs 06.05 |
+| une crèche / maternelle | en barnehage | nom | Norskkurs 06.05 (+1) |
 | crème d'œufs de poisson | kaviar | nom | Norskkurs 20.05 |
 | une crème glacée | en iskrem | nom | Norskkurs 23.04 |
 | une cuillère | ei skje | nom | Norskkurs 05.05 (+1) |
@@ -225,10 +213,8 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | curieux | nysgjerrig | adj | Norskkurs 16.04 (+1) |
 | Danemark | Danmark | nom | Fasit oppgaver kap 1 (+1) |
 | danois | dansk | adj | Norskkurs 01.04 |
-| dans | i | prep | Norskkurs 05.05 (+2) |
-| dans/à (lieu fermé) | i | prep | Fasit oppgaver kap 1 |
+| dans | i | prep | Fasit oppgaver kap 1 (+3) |
 | danse | dans | nom | Norskkurs 09.04 |
-| à / dans / en | i | prep | Norskkurs 01.04 |
 | dedans (mouvement) | inn | adv | Norskkurs 15.04 |
 | dedans (statique) | inne | adv | Norskkurs 15.04 |
 | dehors (mouvement) | ut | adv | Norskkurs 15.04 |
@@ -248,31 +234,26 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | derrière | bak | prep | Norskkurs 05.05 (+2) |
 | deux (2) | to | num | Norskkurs 16.04 |
 | devant | foran | prep | Norskkurs 05.05 (+1) |
-| devoirs | lekser | nom | Hei og velkommen |
+| devoirs | lekser / hjemmearbeid | nom | Hei og velkommen (+1) |
 | devoirs (école) | hjemmelekser | nom | Norskkurs 10.04 |
-| devoirs, travail à la maison | hjemmearbeid | nom | Norskkurs 10.04 |
 | un diagramme | et diagram | nom | Norskkurs 09.04 |
 | un dialecte | en dialekt | nom | Hei og velkommen |
 | un dictionnaire | en ordbok | nom | Hei og velkommen |
 | difficile | vanskelig | adj | Norskkurs 15.04 |
 | dimanche | søndag | nom | Fasit oppgaver Kap 2 (+2) |
-| dîner | en middag | nom | Norskkurs 20.05 |
-| dîner / repas du soir | middag | nom | Norskkurs 15.04 |
+| dîner | middag | nom | Norskkurs 15.04 (+1) |
 | dîner (repas principal) | middag | nom | Norskkurs 06.05 (+1) |
 | un dîner (vers 16-17h) | en middag | nom | Norskkurs 13.05 |
 | une diphtongue | en diftong | nom | Hei og velkommen |
 | un directeur | en direktør | nom | Norskkurs 09.04 |
-| divorce | skilsmisse | nom | Samliv_og_familie_i_Norge |
-| divorcé(e) | skilt | adj | Norskkurs 06.05 |
+| divorce | skilsmisse / skilt | nom | Norskkurs 06.05 (+1) |
 | dix (10) | ti | num | Norskkurs 16.04 |
 | dix-huit (18) | atten | num | Norskkurs 16.04 |
 | dix-neuf (19) | nitten | num | Norskkurs 16.04 |
 | dix-sept (17) — prononcé « søtten » | sytten | num | Norskkurs 16.04 |
 | un document | et dokument | nom | Norskkurs 09.04 |
 | domestiques, serviteurs | tjenestefolk | nom | Samliv_og_familie_i_Norge |
-| doué | flink | adj | Norskkurs 08.04 |
-| doué, fort | flink | adj | Norskkurs 10.04 |
-| doué, fort (en) | flink | adj | Fasit oppgaver Kap 2 |
+| doué | flink | adj | Fasit oppgaver Kap 2 (+2) |
 | douze (12) | tolv | num | Norskkurs 16.04 |
 | un dramaturge | en dramatiker | nom | Norskkurs 09.04 |
 | droits | rettigheter | nom | Norskkurs 09.04 (+1) |
@@ -299,7 +280,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | enfant unique | et enebarn | nom | Norskkurs 06.05 |
 | en haut (mouvement) | opp | adv | Norskkurs 15.04 |
 | en haut (statique) | oppe | adv | Norskkurs 15.04 |
-| un enseignant | en lærer | nom | Fasit oppgaver Kap 2 (+5) |
+| un enseignant | lærer | nom | Fasit oppgaver Kap 2 (+5) |
 | un enseignant (pl. lærere) | en lærer | nom | Norskkurs 16.04 |
 | des enseignants | lærere | nom | Norskkurs 23.04 |
 | ensemble | sammen | adv | Fasit oppgaver Kap 2 (+3) |
@@ -307,12 +288,10 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | ensuite (+ verbe) | etterpå | adv | Norskkurs 13.05 |
 | entre | mellom | prep | Norskkurs 05.05 (+3) |
 | envie de café (litt. assoiffé de café) | kaffetørst | adj | Norskkurs 21.05 |
-| environ | cirka | adv | Norskkurs 21.05 |
-| environ | omtrent | adv | Norskkurs 21.05 |
+| environ | cirka / omtrent | adv | Norskkurs 21.05 |
 | une épouse | ei kone | nom | Norskkurs 06.05 |
 | épouses | koner | nom | Samliv_og_familie_i_Norge |
-| époux, maris | ektemenn | nom | Samliv_og_familie_i_Norge |
-| un époux / un homme | en mann | nom | Norskkurs 06.05 |
+| époux, maris | ektemenn / en mann | nom | Norskkurs 06.05 (+1) |
 | Espagne | Spania | nom | Fasit oppgaver kap 1 (+2) |
 | espagnol | spansk | nom | Fasit oppgaver Kap 2 (+5) |
 | et | og | conj | Fasit oppgaver kap 1 (+4) |
@@ -320,7 +299,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | États-Unis | USA | nom | Fasit oppgaver kap 1 |
 | et quart (passé) | kvart over | adv | Norskkurs 21.05 |
 | une étude | et studium | nom | Norskkurs 09.04 |
-| un étudiant | en student | nom | Fasit oppgaver Kap 2 (+2) |
+| un étudiant | student | nom | Fasit oppgaver Kap 2 (+2) |
 | un euro | en euro | nom | Hei og velkommen |
 | éveillé | våken | adj | Hei og velkommen |
 | un examen | en eksamen | nom | Hei og velkommen |
@@ -334,8 +313,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | fatigué (épuisé) | sliten | adj | Norskkurs 05.05 |
 | fatigué (qui a sommeil) | trøtt | adj | Norskkurs 05.05 |
 | féminin (adj.) | kvinnelig | adj | Norskkurs 09.04 |
-| une femme | ei kvinne | nom | Norskkurs 05.05 (+1) |
-| une femme | ei dame | nom | Norskkurs 05.05 |
+| une femme | ei kvinne / ei dame | nom | Norskkurs 05.05 (+1) |
 | une femme (épouse) | ei kone | nom | Norskkurs 16.04 |
 | femmes | kvinner | nom | Samliv_og_familie_i_Norge |
 | une fenêtre | et vindu | nom | Norskkurs 05.05 |
@@ -343,8 +321,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une fête | en fest | nom | Norskkurs 15.04 |
 | une feuille de papier | et ark | nom | Norskkurs 13.05 |
 | fidélité | trofasthet | nom | Samliv_og_familie_i_Norge |
-| une fille | ei jente | nom | Norskkurs 09.04 |
-| une fille | ei datter | nom | Norskkurs 06.05 |
+| une fille | ei jente / ei datter | nom | Norskkurs 06.05 (+1) |
 | une fille (de qqn) | ei datter | nom | Norskkurs 05.05 |
 | une fille (descendante) | ei datter | nom | Norskkurs 13.05 |
 | une fille (jeune) | ei jente | nom | Norskkurs 05.05 |
@@ -365,12 +342,11 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | framboise | bringebær | nom | Norskkurs 20.05 |
 | français | fransk | nom | Fasit oppgaver Kap 2 (+5) |
 | France | Frankrike | nom | Fasit oppgaver kap 1 (+2) |
-| un frère | en bror | nom | Hei og velkommen (+5) |
+| un frère | en bror / et søsken | nom | Hei og velkommen (+5) |
 | des frères (pluriel) | brødre | nom | Norskkurs 13.05 |
-| frère/sœur (fratrie) | et søsken | nom | Norskkurs 06.05 |
 | un frigo | et kjøleskap | nom | Norskkurs 05.05 |
 | fromage | ost | nom | Norskkurs 05.05 (+3) |
-| un fromage brun norvégien | en brunost | nom | Norskkurs 13.05 (+2) |
+| fromage brun norvégien | brunost | nom | Norskkurs 13.05 (+2) |
 | un fromage jaune | en gulost | nom | Norskkurs 13.05 |
 | fromage jaune (emmental/edam/gouda) | gulost | nom | Norskkurs 20.05 |
 | galettes de poisson | fiskekaker | nom | Norskkurs 20.05 |
@@ -396,15 +372,13 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | habituel, normal | vanlig | adj | Norskkurs 06.05 (+1) |
 | un hamburger | en hamburger | nom | Norskkurs 16.04 (+1) |
 | un hérisson | et piggsvin | nom | Norskkurs 06.05 |
-| l'heure / il est ... heure(s) | klokka | nom | Samtaletime 22.05 |
-| une heure / un cours | en time | nom | Hei og velkommen |
+| une heure / un cours | en time / klokka | nom | Hei og velkommen (+1) |
 | histoire | historie | nom | Norskkurs 09.04 (+1) |
 | un homme | en mann | nom | Norskkurs 05.05 (+1) |
 | hommes | menn | nom | Samliv_og_familie_i_Norge |
 | homosexuels | homofile | nom | Samliv_og_familie_i_Norge |
-| un hôpital | et sykehus | nom | Fasit oppgaver Kap 2 (+7) |
-| une horloge | ei klokke | nom | Norskkurs 05.05 |
-| une horloge / une pendule | ei klokke | nom | Samtaletime 22.05 |
+| hôpital | sykehus | nom | Fasit oppgaver Kap 2 (+7) |
+| une horloge | ei klokke | nom | Norskkurs 05.05 (+1) |
 | une housse de couette | et dynetrekk | nom | Samtaletime 22.05 |
 | huile de foie de morue | tran | nom | Samtaletime 22.05 |
 | huit (8) | åtte | adj | Hei og velkommen (+1) |
@@ -412,22 +386,17 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | ici (mouvement) | hit | adv | Norskkurs 15.04 |
 | ici (statique) | her | adv | Norskkurs 15.04 |
 | ici (vers ici) | hit | adv | Norskkurs 16.04 |
-| il | han | pron | Fasit oppgaver kap 1 (+2) |
-| un œil | et øye | nom | Hei og velkommen (+1) |
-| il/cela (neutre sing.) | det | pron | Norskkurs 02.04 |
+| il | han / øye / den / det | pron | Fasit oppgaver kap 1 (+4) |
 | une île | ei øy | nom | Norskkurs 09.04 |
-| il/elle (chose, masc./fém. sing.) | den | pron | Norskkurs 02.04 |
 | illégal | ulovlig | adj | Samliv_og_familie_i_Norge |
 | il (personne) | han | pron | Norskkurs 02.04 |
 | ils/elles | de | pron | Fasit oppgaver kap 1 (+2) |
 | une image | et bilde | nom | Norskkurs 05.05 |
 | important | viktig | adj | Hei og velkommen |
 | infidélité | utroskap | nom | Samliv_og_familie_i_Norge |
-| un infirmier | en sykepleier | nom | Norskkurs 05.05 |
+| un infirmier | sykepleier / en hjemmesykepleie | nom | Norskkurs 01.04 (+3) |
 | infirmier à domicile | hjemmesykepleier | nom | Norskkurs 02.04 |
-| infirmier/ère | sykepleier | nom | Norskkurs 01.04 (+1) |
 | infirmier(ère) à domicile | en hjemmesykepleier | nom | Norskkurs 09.04 |
-| infirmier/ère libéral(e) | en hjemmesykepleie | nom | Norskkurs 10.04 |
 | infirmier(ère) (pl. sykepleiere) | en sykepleier | nom | Norskkurs 16.04 |
 | des infirmier(ère)s | sykepleiere | nom | Norskkurs 23.04 |
 | une information | en informasjon | nom | Norskkurs 09.04 |
@@ -438,7 +407,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | Italie | Italia | nom | Norskkurs 01.04 |
 | italien | italiensk | adj | Norskkurs 01.04 |
 | jaloux | sjalu | adj | Norskkurs 16.04 (+1) |
-| un jambon | en skinke | nom | Norskkurs 06.05 (+2) |
+| jambon | en skinke | nom | Norskkurs 06.05 (+2) |
 | un jardin | en hage | nom | Norskkurs 06.05 |
 | jaune | gul | adj | Hei og velkommen |
 | je | jeg | pron | Fasit oppgaver kap 1 (+4) |
@@ -446,11 +415,11 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une jeunesse | en ungdom | nom | Norskkurs 09.04 |
 | jour | dag | nom | Norskkurs 02.04 (+2) |
 | un jour de semaine (lun-ven) | en hverdag | nom | Norskkurs 08.04 |
-| un journal | en avis | nom | Fasit oppgaver Kap 2 (+6) |
+| journal | en avis | nom | Fasit oppgaver Kap 2 (+6) |
 | jumeaux | tvillinger | nom | Norskkurs 06.05 (+1) |
-| un jus | en jus | nom | Norskkurs 05.05 (+3) |
+| jus | jus | nom | Norskkurs 05.05 (+3) |
 | jus de pomme | en eplejus | nom | Norskkurs 16.04 (+1) |
-| jus d'orange | en appelsinjus | nom | Norskkurs 16.04 (+2) |
+| jus d'orange | appelsinjus | nom | Norskkurs 16.04 (+2) |
 | un kiosque | en kiosk | nom | Norskkurs 16.04 (+1) |
 | là | der | adv | Hei og velkommen |
 | là-bas | der | adv | Norskkurs 09.04 |
@@ -460,14 +429,13 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | lait | melk | nom | Norskkurs 05.05 (+2) |
 | là (lieu) | der | adv | Norskkurs 16.04 |
 | une lampe | ei lampe | nom | Norskkurs 20.05 (+1) |
-| une langue | et språk | nom | Hei og velkommen (+5) |
+| langue | språk | nom | Hei og velkommen (+5) |
 | une langue (pl. språk) | et språk | nom | Norskkurs 16.04 |
 | un lavabo | en vask | nom | Samtaletime 22.05 |
 | là (vers là) | dit | adv | Norskkurs 16.04 |
 | un lave-vaisselle | en oppvaskmaskin | nom | Samtaletime 22.05 |
 | légumes | grønnsaker | nom | Norskkurs 08.04 |
-| une lettre | en bokstav | nom | Hei og velkommen |
-| une lettre | et brev | nom | Norskkurs 23.04 |
+| une lettre | en bokstav / et brev | nom | Hei og velkommen (+1) |
 | une lettre (pl. brev) | et brev | nom | Norskkurs 16.04 |
 | liberté | frihet | nom | Samliv_og_familie_i_Norge |
 | un lieu de travail | en arbeidsplass | nom | Norskkurs 06.05 (+1) |
@@ -493,16 +461,13 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | magasin de chaussures | en skobutikk | nom | Norskkurs 10.04 |
 | un magasin (pl. butikker) | en butikk | nom | Norskkurs 16.04 |
 | des magasins | butikker | nom | Norskkurs 23.04 |
-| un magazine | et blad | nom | Norskkurs 16.04 (+2) |
-| un magazine | et magasin | nom | Samtaletime 22.05 |
+| un magazine | et blad / et magasin | nom | Norskkurs 16.04 (+2) |
 | mai | mai | nom | Hei og velkommen |
 | main | hånd | nom | Norskkurs 02.04 (+1) |
 | des mains (pluriel) | hender | nom | Norskkurs 13.05 |
 | maintenant | nå | adv | Fasit oppgaver Kap 2 (+5) |
 | mais | men | conj | Fasit oppgaver Kap 2 (+5) |
-| une maison | et hus | nom | Hei og velkommen (+4) |
-| la maison | huset | nom | Samliv_og_familie_i_Norge |
-| à la maison, au foyer | hjemme | adv | Norskkurs 10.04 |
+| la maison | et hus / huset / hjemme | nom | Hei og velkommen (+5) |
 | maison de retraite médicalisée | et sykehjem | nom | Norskkurs 10.04 |
 | maison de soins (EHPAD) | sykehjem | nom | Norskkurs 02.04 |
 | à la maison (mouvement) | hjem | adv | Norskkurs 15.04 |
@@ -563,8 +528,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | non marié(e) | ugift | adj | Norskkurs 06.05 (+1) |
 | Nord de la Norvège | Nord-Norge | nom | Hei og velkommen |
 | Norvège | Norge | nom | Fasit oppgaver kap 1 (+4) |
-| norvégien | norsk | adj | Hei og velkommen (+4) |
-| un Norvégien | en nordmann | nom | Norskkurs 21.05 |
+| norvégien | norsk / en nordmann | adj | Hei og velkommen (+5) |
 | norvégien (langue) | norsk | nom | Fasit oppgaver Kap 2 (+1) |
 | Norvégiens (pl.) | nordmenn | nom | Samliv_og_familie_i_Norge |
 | nourriture | mat | nom | Fasit oppgaver Kap 2 (+1) |
@@ -580,9 +544,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un ordinateur | en PC | nom | Norskkurs 08.04 |
 | un oreiller / un coussin | ei pute | nom | Samtaletime 22.05 |
 | Oslo | Oslo | nom | Fasit oppgaver kap 1 (+1) |
-| où | hvor | adv | Fasit oppgaver kap 1 (+1) |
-| ou | eller | conj | Norskkurs 02.04 (+1) |
-| Où? | Hvor? | adv | Norskkurs 05.05 |
+| où | hvor / eller / Hvor? | adv | Fasit oppgaver kap 1 (+3) |
 | oui | ja | interj | Fasit oppgaver kap 1 (+1) |
 | ouvrier du bâtiment | en bygningsarbeider | nom | Norskkurs 10.04 |
 | une page | en side | nom | Hei og velkommen |
@@ -606,11 +568,11 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | partenariat civil | partnerskap | nom | Samliv_og_familie_i_Norge |
 | pâté de foie | en leverpostei | nom | Norskkurs 05.05 (+2) |
 | pâtes | pasta | nom | Norskkurs 08.04 |
-| une pause | en pause | nom | Hei og velkommen (+1) |
+| pause | pause | nom | Hei og velkommen (+1) |
 | pays | land | nom | Norskkurs 01.04 |
 | un peigne | en kam | nom | Norskkurs 05.05 |
 | une pendule, une montre | ei klokke | nom | Norskkurs 21.05 |
-| un père | en far | nom | Hei og velkommen (+3) |
+| père | far | nom | Hei og velkommen (+3) |
 | père célibataire | alenefar | nom | Samliv_og_familie_i_Norge |
 | une période de 24 heures | et døgn | nom | Norskkurs 13.05 |
 | petit copain / petite copine | en kjæreste | nom | Norskkurs 15.04 |
@@ -640,8 +602,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | plutôt | ganske | adv | Norskkurs 09.04 |
 | une poire | en pære | nom | Hei og velkommen (+2) |
 | un poivron | en paprika | nom | Norskkurs 13.05 |
-| un policier | en politi | nom | Fasit oppgaver Kap 2 |
-| un policier | en politimann | nom | Norskkurs 10.04 |
+| un policier | en politi / en politimann | nom | Fasit oppgaver Kap 2 (+1) |
 | une policière | en politikvinne | nom | Norskkurs 10.04 |
 | un politicien | en politiker | nom | Norskkurs 09.04 |
 | Pologne | Polen | nom | Norskkurs 01.04 |
@@ -657,8 +618,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | Portugal | Portugal | nom | Norskkurs 01.04 |
 | une poubelle | ei søppel | nom | Norskkurs 16.04 (+1) |
 | poules | høner | nom | Norskkurs 06.05 |
-| pourquoi | hvorfor | adv | Norskkurs 03.04 (+1) |
-| Pourquoi? | Hvorfor? | adv | Norskkurs 05.05 |
+| pourquoi | hvorfor / Hvorfor? | adv | Norskkurs 03.04 (+2) |
 | un premier ministre | en statsminister | nom | Norskkurs 09.04 |
 | prénom | fornavn | nom | Norskkurs 02.04 |
 | presque | nesten | adv | Norskkurs 21.05 |
@@ -668,8 +628,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un prof de norvégien | en norsklærer | nom | Norskkurs 09.04 |
 | professeur | lærer | nom | Norskkurs 02.04 |
 | un programme | et program | nom | Norskkurs 09.04 |
-| une promenade | en tur | nom | Fasit oppgaver Kap 2 |
-| une promenade / un tour | en tur | nom | Norskkurs 15.04 |
+| une promenade | en tur | nom | Fasit oppgaver Kap 2 (+1) |
 | la protection de l'enfance | barnevernet | nom | Samliv_og_familie_i_Norge |
 | de (provenance) | fra | prep | Fasit oppgaver kap 1 |
 | un psychologue | en psykolog | nom | Norskkurs 09.04 |
@@ -679,8 +638,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un pull (pl. gensere) | en genser | nom | Norskkurs 16.04 |
 | des pulls | gensere | nom | Norskkurs 23.04 |
 | un quai | en kai | nom | Hei og velkommen |
-| quand | når | adv | Norskkurs 03.04 (+2) |
-| Quand? | Når? | adv | Norskkurs 05.05 |
+| quand | når / Når? | adv | Norskkurs 03.04 (+3) |
 | quarante (40) | førti | num | Norskkurs 16.04 |
 | quatorze (14) | fjorten | num | Norskkurs 16.04 |
 | quatre (4) | fire | num | Norskkurs 16.04 |
@@ -689,12 +647,10 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | quelques / certains | noen | pron | Hei og velkommen |
 | qu'est-ce que / quoi | hva | pron | Norskkurs 01.04 (+1) |
 | question | spørsmål | nom | Norskkurs 02.04 (+2) |
-| qui | hvem | pron | Norskkurs 03.04 |
-| Qui? | Hvem? | pron | Norskkurs 05.05 |
+| qui | hvem / Hvem? | pron | Norskkurs 03.04 (+1) |
 | quinze (15) | femten | num | Norskkurs 16.04 |
-| Quoi? | Hva? | pron | Norskkurs 05.05 |
-| quoi/que | hva | pron | Fasit oppgaver kap 1 |
-| un rabot à fromage | en ostehøvel | nom | Norskkurs 05.05 (+1) |
+| Quoi? | hva / Hva? | pron | Fasit oppgaver kap 1 (+1) |
+| rabot à fromage | en ostehøvel | nom | Norskkurs 05.05 (+1) |
 | une radio | en radio | nom | Samtaletime 22.05 |
 | un raisin | ei drue | nom | Norskkurs 16.04 (+2) |
 | des raisins | druer | nom | Norskkurs 23.04 |
@@ -717,8 +673,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une rue | en gate | nom | Hei og velkommen (+1) |
 | russe | russisk | nom | Fasit oppgaver kap 1 (+2) |
 | Russie | Russland | nom | Fasit oppgaver kap 1 (+1) |
-| un sac | ei veske | nom | Norskkurs 06.05 (+2) |
-| un sac | en sekk | nom | Norskkurs 05.05 |
+| un sac | ei veske / en sekk | nom | Norskkurs 05.05 (+3) |
 | un sac à dos | en ryggsekk | nom | Norskkurs 05.05 |
 | un sac (à main) | ei veske | nom | Samtaletime 22.05 |
 | un sac d'école | en skolesekk | nom | Norskkurs 13.05 |
@@ -728,7 +683,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une salle de bain | et bad | nom | Samtaletime 22.05 |
 | salle de sport | treningsstudio | nom | Norskkurs 08.04 |
 | un salon | ei stue | nom | Norskkurs 20.05 |
-| un salon de coiffure | en frisørsalong | nom | Fasit oppgaver Kap 2 (+1) |
+| salon de coiffure | en frisørsalong | nom | Fasit oppgaver Kap 2 (+1) |
 | Salut | Hei | vocab | lesson_01_intro |
 | une salutation | en hilsen | nom | Hei og velkommen |
 | samedi | lørdag | nom | Fasit oppgaver Kap 2 (+2) |
@@ -747,12 +702,10 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | sept (7) | sju | num | Norskkurs 16.04 |
 | sept (7) — variante | syv | num | Norskkurs 16.04 |
 | une série | en serie | nom | Norskkurs 08.04 |
-| un serveur | en kelner | nom | Fasit oppgaver Kap 2 (+2) |
-| un serveur | en servitør | nom | Norskkurs 10.04 |
+| un serveur | en kelner / en servitør | nom | Fasit oppgaver Kap 2 (+2) |
 | un serveur (synonyme) | en servitør | nom | Norskkurs 09.04 |
 | une serviette | en serviett | nom | Norskkurs 16.04 (+1) |
-| seulement | bare | adv | Norskkurs 01.04 |
-| seulement, juste | bare | adv | Norskkurs 03.04 |
+| seulement | bare | adv | Norskkurs 01.04 (+1) |
 | un shampoing | en sjampo | nom | Samtaletime 22.05 |
 | S'il te plaît | Vær så snill | vocab | lesson_01_intro |
 | simple | enkel | adj | Norskkurs 09.04 |
@@ -786,8 +739,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | Suède | Sverige | nom | Fasit oppgaver kap 1 (+1) |
 | suédois | svensk | adj | Norskkurs 01.04 |
 | un supermarché, épicerie | en matbutikk | nom | Norskkurs 10.04 |
-| une sœur | ei søster | nom | Norskkurs 05.05 (+2) |
-| sur | på | prep | Norskkurs 05.05 (+2) |
+| sur | ei søster / på | nom | Norskkurs 05.05 (+2) |
 | des sœurs (pluriel) | søstre | nom | Norskkurs 13.05 |
 | un système | et system | nom | Norskkurs 09.04 |
 | une table | et bord | nom | Norskkurs 05.05 (+3) |
@@ -799,8 +751,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | une tante | ei tante | nom | Norskkurs 06.05 |
 | tapage | bråk | nom | Hei og velkommen |
 | un tapis | et teppe | nom | Norskkurs 20.05 |
-| une tartine | et smørbrød | nom | Norskkurs 13.05 |
-| une tartine | ei brødskive | nom | Samtaletime 22.05 |
+| une tartine | et smørbrød / ei brødskive | nom | Norskkurs 13.05 (+1) |
 | tartine de pain | ei brødskive | nom | Norskkurs 20.05 |
 | tartine garnie | et smørbrød | nom | Norskkurs 06.05 |
 | une tasse | en kopp | nom | Norskkurs 13.05 (+1) |
@@ -809,7 +760,7 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | des tasses | kopper | nom | Norskkurs 23.04 |
 | une télé | en tv | nom | Samtaletime 22.05 |
 | une télécommande | en tv-kontroll | nom | Samtaletime 22.05 |
-| un téléphone (portable) | en mobil | nom | Norskkurs 16.04 (+1) |
+| un téléphone portable | en mobil | nom | Norskkurs 16.04 (+1) |
 | une télévision | et fjernsyn | nom | Samtaletime 22.05 |
 | temps (météo) | vær | nom | Hei og velkommen |
 | terminé, prêt | ferdig | adj | Norskkurs 05.05 |
@@ -818,12 +769,11 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | tissu | tøy | nom | Hei og velkommen |
 | toilettes | do | nom | Hei og velkommen |
 | un toit | et tak | nom | Hei og velkommen |
-| une tomate | en tomat | nom | Norskkurs 13.05 (+1) |
+| tomate | en tomat | nom | Norskkurs 13.05 (+1) |
 | tout d'abord | først | adv | Norskkurs 20.05 |
 | une tranche | ei skive | nom | Norskkurs 05.05 |
 | une tranche de pain | ei brødskive | nom | Norskkurs 05.05 (+1) |
-| travail | arbeid | nom | Norskkurs 10.04 |
-| travail | en jobb | nom | Norskkurs 20.05 |
+| travail | arbeid / en jobb | nom | Norskkurs 10.04 (+1) |
 | treize (13) | tretten | num | Norskkurs 16.04 |
 | trente (30) | tretti | num | Norskkurs 16.04 |
 | trente (30) — variante | tredve | num | Norskkurs 16.04 |
@@ -832,16 +782,15 @@ _872 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | trois / arbre | tre | nom | Hei og velkommen |
 | Trondheim | Trondheim | nom | Fasit oppgaver kap 1 |
 | tu | du | pron | Fasit oppgaver kap 1 (+4) |
-| un œuf | et egg | nom | Norskkurs 05.05 (+4) |
+| œuf | et egg | nom | Norskkurs 05.05 (+4) |
 | un œuf au plat | et speilegg | nom | Norskkurs 13.05 |
 | un œuf dur | et kokt egg | nom | Norskkurs 13.05 |
 | un œuf (pl. egg) | et egg | nom | Norskkurs 16.04 |
 | œufs brouillés | eggerøre | nom | Norskkurs 13.05 |
 | un(e) élève | en elev | nom | Hei og velkommen |
 | un(e) étudiant(e) | en student | nom | Hei og velkommen |
-| un(e) infirmier(e) | en sykepleier | nom | Norskkurs 21.05 |
-| un(e) infirmier(ère) | en sykepleier | nom | Hei og velkommen (+2) |
-| un(e) infirmier/ière | en sykepleier | nom | Norskkurs 09.04 |
+| un(e) infirmier(e) | en sykepleier | nom | Norskkurs 09.04 (+2) |
+| un(e) infirmier(ère) | en sykepleier | nom | Hei og velkommen (+1) |
 | un(e) petit(e) ami(e) | en kjæreste | nom | Norskkurs 06.05 |
 | un(e) professeur | en lærer | nom | Hei og velkommen |
 | un uniforme | en uniform | nom | Samtaletime 22.05 |
