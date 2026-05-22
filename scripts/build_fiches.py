@@ -172,15 +172,16 @@ def normalize_no(s: str) -> str:
 
 
 def primary_fr(s: str) -> str:
-    """Return the first headword from a French side, stripped of variants.
+    """Return the first headword from a French side, stripped of variants and qualifiers.
 
-    'un ami / une amie' -> 'ami'
-    'aller, marcher'    -> 'aller' -> 'aller' (normalize_fr handles article)
-    'animal de compagnie' -> kept as-is (no separator).
+    'un ami / une amie'   -> 'ami'
+    'aller, marcher'      -> 'aller'
+    'après (+ nom)'       -> 'apres'   (parenthesised qualifier dropped)
+    'animal de compagnie' -> 'animaldecompagnie' (no separator → whole headword)
     """
     import re
-    # split on first '/' or ',' that separates synonyms
-    primary = re.split(r"\s*[/,]\s*", s, 1)[0]
+    # cut at the first variant separator OR opening parenthesis
+    primary = re.split(r"\s*[/,(]\s*", s, 1)[0]
     return normalize_fr(primary)
 
 
@@ -395,8 +396,9 @@ def update_index() -> None:
     (FICHES / f"{RECAP_VERBS}.md").write_text(recap_verbs_md)
 
     # Dedupe the flat flashcard pool so the Flashcards page doesn't show the same
-    # `å være = être` six times when the prof repeats it across lessons.
-    flashcards = dedupe([c for c in all_cards if is_valid_entry(c)])
+    # `å være = être` six times across lessons, nor distinct `bien=bra` + `bien=godt`
+    # entries that look duplicated to a learner — those collapse to `bien=bra / godt`.
+    flashcards = merge_by_primary_fr(dedupe([c for c in all_cards if is_valid_entry(c)]))
 
     n_vocab = recap_vocab_md.count("\n| ") - 1  # rows minus header
     n_verbs = recap_verbs_md.count("\n| ") - 1
