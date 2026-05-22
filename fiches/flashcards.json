@@ -5,7 +5,7 @@
     "type": "verbe",
     "tag": "présentations",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, lesson_01_intro"
   },
   {
     "front": "å komme",
@@ -13,7 +13,7 @@
     "type": "verbe",
     "tag": "présentations",
     "pos": "verbe",
-    "source": "Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 16.04"
+    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 16.04, lesson_01_intro"
   },
   {
     "front": "å bo",
@@ -21,7 +21,7 @@
     "type": "verbe",
     "tag": "présentations",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Samliv_og_familie_i_Norge, Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, Samliv_og_familie_i_Norge, lesson_01_intro"
   },
   {
     "front": "å snakke",
@@ -61,7 +61,7 @@
     "type": "verbe",
     "tag": "base",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 15.04, Norskkurs 23.04, Norskkurs 13.05"
+    "source": "Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 13.05, Norskkurs 15.04, Norskkurs 23.04, lesson_01_intro"
   },
   {
     "front": "jeg",
@@ -69,7 +69,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, lesson_01_intro"
   },
   {
     "front": "du",
@@ -77,7 +77,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, lesson_01_intro"
   },
   {
     "front": "han",
@@ -85,7 +85,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, lesson_01_intro, Norskkurs 01.04"
+    "source": "Fasit oppgaver kap 1, Norskkurs 01.04, lesson_01_intro"
   },
   {
     "front": "hun",
@@ -93,7 +93,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, lesson_01_intro, Norskkurs 01.04"
+    "source": "Fasit oppgaver kap 1, Norskkurs 01.04, lesson_01_intro"
   },
   {
     "front": "vi",
@@ -101,7 +101,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, lesson_01_intro, Norskkurs 02.04"
+    "source": "Fasit oppgaver kap 1, Norskkurs 02.04, lesson_01_intro"
   },
   {
     "front": "dere",
@@ -117,7 +117,7 @@
     "type": "vocab",
     "tag": "pronoms",
     "pos": "pron",
-    "source": "Fasit oppgaver kap 1, lesson_01_intro, Norskkurs 02.04"
+    "source": "Fasit oppgaver kap 1, Norskkurs 02.04, lesson_01_intro"
   },
   {
     "front": "De",
@@ -245,7 +245,7 @@
     "type": "vocab",
     "tag": "pays",
     "pos": "nom",
-    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, Norskkurs 21.05"
   },
   {
     "front": "Sverige",
@@ -565,7 +565,7 @@
     "type": "verbe",
     "tag": "activités",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 23.04, Norskkurs 05.05, Norskkurs 20.05, Norskkurs 21.05, Samtaletime 22.05"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 05.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 20.05, Norskkurs 21.05, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "å snakke",
@@ -613,7 +613,7 @@
     "type": "verbe",
     "tag": "activités",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 21.05"
+    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 21.05, Norskkurs 23.04"
   },
   {
     "front": "å forstå",
@@ -669,7 +669,7 @@
     "type": "verbe",
     "tag": "activités",
     "pos": "verbe",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 13.05, Norskkurs 20.05"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 13.05, Norskkurs 15.04, Norskkurs 20.05"
   },
   {
     "front": "å slappe av",
@@ -757,7 +757,7 @@
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 09.04"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 05.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 16.04, Norskkurs 20.05, Norskkurs 23.04"
   },
   {
     "front": "en tur",
@@ -797,7 +797,7 @@
     "type": "vocab",
     "tag": "professions",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 10.04, Norskkurs 23.04, Norskkurs 05.05"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 01.04, Norskkurs 05.05, Norskkurs 09.04, Norskkurs 10.04, Norskkurs 23.04"
   },
   {
     "front": "en lege",
@@ -821,7 +821,7 @@
     "type": "vocab",
     "tag": "professions",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 09.04"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 01.04, Norskkurs 09.04"
   },
   {
     "front": "en politi",
@@ -909,7 +909,7 @@
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 03.04, Norskkurs 09.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 23.04, Norskkurs 06.05"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 02.04, Norskkurs 03.04, Norskkurs 06.05, Norskkurs 09.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "en frisørsalong",
@@ -917,7 +917,7 @@
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2"
+    "source": "Fasit oppgaver Kap 2, Norskkurs 10.04"
   },
   {
     "front": "en skole",
@@ -949,7 +949,7 @@
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 09.04, Norskkurs 16.04, Norskkurs 23.04, Norskkurs 06.05"
+    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 06.05, Norskkurs 09.04, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "norsk",
@@ -1021,7 +1021,7 @@
     "type": "vocab",
     "tag": "études",
     "pos": "nom",
-    "source": "Fasit oppgaver Kap 2, Norskkurs 03.04"
+    "source": "Fasit oppgaver Kap 2, Hei og velkommen, Norskkurs 03.04"
   },
   {
     "front": "dere",
@@ -1341,7 +1341,7 @@
     "type": "vocab",
     "tag": "métiers",
     "pos": "nom",
-    "source": "Hei og velkommen, Norskkurs 23.04"
+    "source": "Hei og velkommen, Norskkurs 10.04, Norskkurs 23.04"
   },
   {
     "front": "norskkurs",
@@ -1389,7 +1389,7 @@
     "type": "vocab",
     "tag": "école",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Samliv_og_familie_i_Norge"
   },
   {
     "front": "en samtale",
@@ -1525,7 +1525,7 @@
     "type": "vocab",
     "tag": "langue",
     "pos": "nom",
-    "source": "Hei og velkommen, Norskkurs 03.04, Norskkurs 23.04, Norskkurs 05.05"
+    "source": "Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, Norskkurs 03.04, Norskkurs 05.05, Norskkurs 23.04"
   },
   {
     "front": "en dialekt",
@@ -1565,7 +1565,7 @@
     "type": "verbe",
     "tag": "verbes de base",
     "pos": "verbe",
-    "source": "Hei og velkommen, Norskkurs 23.04, Norskkurs 21.05"
+    "source": "Hei og velkommen, Norskkurs 21.05, Norskkurs 23.04"
   },
   {
     "front": "å forstå",
@@ -1597,7 +1597,7 @@
     "type": "vocab",
     "tag": "langue",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 02.04"
   },
   {
     "front": "en bokstav",
@@ -1741,7 +1741,7 @@
     "type": "vocab",
     "tag": "maison",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 09.04, Samtaletime 22.05"
   },
   {
     "front": "tre",
@@ -1757,7 +1757,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "et smil",
@@ -1973,7 +1973,7 @@
     "type": "vocab",
     "tag": "corps",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 02.04"
   },
   {
     "front": "en sau",
@@ -2005,7 +2005,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Hei og velkommen, Norskkurs 16.04, Norskkurs 23.04, Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Hei og velkommen, Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "bråk",
@@ -2021,7 +2021,7 @@
     "type": "vocab",
     "tag": "lieux",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Samtaletime 22.05"
   },
   {
     "front": "ganske",
@@ -2061,7 +2061,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Hei og velkommen"
+    "source": "Hei og velkommen, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "musikk",
@@ -2125,7 +2125,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Hei og velkommen, Norskkurs 05.05, Norskkurs 06.05"
+    "source": "Hei og velkommen, Norskkurs 05.05, Norskkurs 06.05, Samliv_og_familie_i_Norge"
   },
   {
     "front": "å fly",
@@ -2475,7 +2475,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 05.05, Samliv_og_familie_i_Norge"
   },
   {
     "front": "kongefamilien",
@@ -2523,7 +2523,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05, Samliv_og_familie_i_Norge"
   },
   {
     "front": "kongekronen",
@@ -2555,7 +2555,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 09.04, Norskkurs 13.05, Samliv_og_familie_i_Norge"
   },
   {
     "front": "far",
@@ -2571,7 +2571,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 09.04, Norskkurs 13.05, Norskkurs 23.04, Samliv_og_familie_i_Norge"
   },
   {
     "front": "foreldre",
@@ -2579,7 +2579,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Samliv_og_familie_i_Norge, Norskkurs 13.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05, Samliv_og_familie_i_Norge"
   },
   {
     "front": "generasjon",
@@ -2875,7 +2875,7 @@
     "type": "vocab",
     "tag": "valeurs",
     "pos": "nom",
-    "source": "Samliv_og_familie_i_Norge"
+    "source": "Norskkurs 09.04, Samliv_og_familie_i_Norge"
   },
   {
     "front": "romantisk",
@@ -3379,7 +3379,7 @@
     "type": "vocab",
     "tag": "langues",
     "pos": "nom",
-    "source": "Norskkurs 01.04, Norskkurs 02.04"
+    "source": "Norskkurs 01.04"
   },
   {
     "front": "lærer",
@@ -4155,7 +4155,7 @@
     "type": "verbe",
     "tag": "verbe",
     "pos": "verbe",
-    "source": "Norskkurs 02.04, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 05.05, Norskkurs 21.05, Samtaletime 22.05"
+    "source": "Norskkurs 02.04, Norskkurs 05.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 21.05, Samtaletime 22.05"
   },
   {
     "front": "å danse",
@@ -4451,7 +4451,7 @@
     "type": "vocab",
     "tag": "métier",
     "pos": "nom",
-    "source": "Norskkurs 02.04"
+    "source": "Norskkurs 02.04, Norskkurs 05.05, Norskkurs 09.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "lærer",
@@ -4483,7 +4483,7 @@
     "type": "vocab",
     "tag": "identité",
     "pos": "nom",
-    "source": "Norskkurs 02.04"
+    "source": "Norskkurs 02.04, Norskkurs 23.04"
   },
   {
     "front": "etternavn",
@@ -4499,7 +4499,7 @@
     "type": "vocab",
     "tag": "classe",
     "pos": "nom",
-    "source": "Norskkurs 02.04"
+    "source": "Norskkurs 02.04, Norskkurs 03.04, Norskkurs 09.04"
   },
   {
     "front": "Norge",
@@ -4547,7 +4547,7 @@
     "type": "vocab",
     "tag": "corps",
     "pos": "nom",
-    "source": "Norskkurs 02.04"
+    "source": "Norskkurs 02.04, Norskkurs 13.05"
   },
   {
     "front": "morgen",
@@ -4563,7 +4563,7 @@
     "type": "vocab",
     "tag": "temps",
     "pos": "nom",
-    "source": "Norskkurs 02.04"
+    "source": "Norskkurs 02.04, Norskkurs 03.04, Norskkurs 08.04"
   },
   {
     "front": "kveld",
@@ -4731,7 +4731,7 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 03.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 22.04, Norskkurs 20.05"
+    "source": "Norskkurs 03.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 20.05, Norskkurs 22.04"
   },
   {
     "front": "å lære",
@@ -4763,7 +4763,7 @@
     "type": "vocab",
     "tag": "norskkurs",
     "pos": "nom",
-    "source": "Norskkurs 03.04, Norskkurs 09.04"
+    "source": "Norskkurs 03.04"
   },
   {
     "front": "ei bok",
@@ -4771,7 +4771,7 @@
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
-    "source": "Norskkurs 03.04, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 06.05, Norskkurs 13.05, Norskkurs 20.05, Samtaletime 22.05"
+    "source": "Norskkurs 03.04, Norskkurs 06.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 13.05, Norskkurs 20.05, Samtaletime 22.05"
   },
   {
     "front": "et hus",
@@ -4795,7 +4795,7 @@
     "type": "vocab",
     "tag": "temps",
     "pos": "nom",
-    "source": "Norskkurs 03.04, Norskkurs 08.04"
+    "source": "Norskkurs 03.04"
   },
   {
     "front": "i dag",
@@ -5339,7 +5339,7 @@
     "type": "vocab",
     "tag": "boissons",
     "pos": "nom",
-    "source": "Norskkurs 08.04"
+    "source": "Norskkurs 05.05, Norskkurs 08.04, Samtaletime 22.05"
   },
   {
     "front": "kakao",
@@ -5427,7 +5427,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 08.04"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 08.04, Norskkurs 13.05"
   },
   {
     "front": "ei bok",
@@ -6443,7 +6443,7 @@
     "type": "vocab",
     "tag": "professions",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 09.04"
+    "source": "Norskkurs 09.04"
   },
   {
     "front": "en lærer",
@@ -6507,7 +6507,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 09.04, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 09.04"
   },
   {
     "front": "ei seng",
@@ -6515,7 +6515,7 @@
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
-    "source": "Norskkurs 09.04, Samtaletime 22.05"
+    "source": "Norskkurs 09.04"
   },
   {
     "front": "et hus",
@@ -6531,7 +6531,7 @@
     "type": "vocab",
     "tag": "personnes",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 09.04, Norskkurs 23.04, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 09.04"
   },
   {
     "front": "et eple",
@@ -7571,7 +7571,7 @@
     "type": "vocab",
     "tag": "métiers",
     "pos": "nom",
-    "source": "Norskkurs 10.04, Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 10.04"
   },
   {
     "front": "en mekaniker",
@@ -8475,7 +8475,7 @@
     "type": "vocab",
     "tag": "nombres",
     "pos": "nom",
-    "source": "Norskkurs 15.04"
+    "source": "Norskkurs 15.04, Norskkurs 16.04"
   },
   {
     "front": "to",
@@ -9011,7 +9011,7 @@
     "type": "verbe",
     "tag": "verbes",
     "pos": "verbe",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Norskkurs 21.05"
   },
   {
     "front": "å flytte",
@@ -9091,7 +9091,7 @@
     "type": "vocab",
     "tag": "objets",
     "pos": "nom",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Samtaletime 22.05"
   },
   {
     "front": "en billett",
@@ -9459,7 +9459,7 @@
     "type": "vocab",
     "tag": "kiosk",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 16.04"
   },
   {
     "front": "et blad",
@@ -9491,7 +9491,7 @@
     "type": "vocab",
     "tag": "mat",
     "pos": "nom",
-    "source": "Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 16.04, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "ei pølse med brød",
@@ -9563,7 +9563,7 @@
     "type": "vocab",
     "tag": "drikke",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 05.05, Norskkurs 16.04, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "en appelsinjus",
@@ -9571,7 +9571,7 @@
     "type": "vocab",
     "tag": "drikke",
     "pos": "nom",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "en eplejus",
@@ -9579,7 +9579,7 @@
     "type": "vocab",
     "tag": "drikke",
     "pos": "nom",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "brus",
@@ -9627,7 +9627,7 @@
     "type": "vocab",
     "tag": "mat",
     "pos": "nom",
-    "source": "Norskkurs 16.04"
+    "source": "Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "en kjeks",
@@ -9635,7 +9635,7 @@
     "type": "vocab",
     "tag": "mat",
     "pos": "nom",
-    "source": "Norskkurs 16.04, Norskkurs 23.04, Norskkurs 21.05"
+    "source": "Norskkurs 16.04, Norskkurs 21.05, Norskkurs 23.04"
   },
   {
     "front": "et rundstykke",
@@ -9651,7 +9651,7 @@
     "type": "vocab",
     "tag": "mat",
     "pos": "nom",
-    "source": "Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 16.04"
   },
   {
     "front": "en is",
@@ -9659,7 +9659,7 @@
     "type": "vocab",
     "tag": "mat",
     "pos": "nom",
-    "source": "Norskkurs 16.04, Norskkurs 23.04"
+    "source": "Norskkurs 16.04"
   },
   {
     "front": "en iskrem",
@@ -9699,7 +9699,7 @@
     "type": "vocab",
     "tag": "frukt",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 16.04, Norskkurs 23.04, Norskkurs 13.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05, Norskkurs 16.04, Norskkurs 23.04"
   },
   {
     "front": "en banan",
@@ -9811,7 +9811,7 @@
     "type": "vocab",
     "tag": "adverbes",
     "pos": "adv",
-    "source": "Norskkurs 16.04, Norskkurs 22.04, Norskkurs 21.05"
+    "source": "Norskkurs 16.04, Norskkurs 21.05, Norskkurs 22.04"
   },
   {
     "front": "sammen",
@@ -10795,7 +10795,7 @@
     "type": "vocab",
     "tag": "maison",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 23.04, Norskkurs 13.05, Samtaletime 22.05"
+    "source": "Norskkurs 05.05, Norskkurs 13.05, Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "et kurs",
@@ -10899,7 +10899,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 23.04, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05, Norskkurs 20.05, Norskkurs 23.04"
   },
   {
     "front": "ei flaske",
@@ -11035,7 +11035,7 @@
     "type": "vocab",
     "tag": "vêtements",
     "pos": "nom",
-    "source": "Norskkurs 23.04"
+    "source": "Norskkurs 23.04, Samtaletime 22.05"
   },
   {
     "front": "jakker",
@@ -11611,7 +11611,7 @@
     "type": "vocab",
     "tag": "famille",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 05.05"
   },
   {
     "front": "ei datter",
@@ -11811,7 +11811,7 @@
     "type": "vocab",
     "tag": "cuisine",
     "pos": "nom",
-    "source": "Norskkurs 05.05"
+    "source": "Norskkurs 05.05, Norskkurs 20.05"
   },
   {
     "front": "et bilde",
@@ -11859,7 +11859,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Samtaletime 22.05"
+    "source": "Norskkurs 05.05"
   },
   {
     "front": "en kartong",
@@ -11883,7 +11883,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 05.05"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
   },
   {
     "front": "et smør",
@@ -11891,7 +11891,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 13.05"
+    "source": "Norskkurs 05.05, Norskkurs 13.05, Norskkurs 20.05"
   },
   {
     "front": "en leverpostei",
@@ -11899,7 +11899,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 05.05, Norskkurs 06.05"
+    "source": "Norskkurs 05.05, Norskkurs 06.05, Norskkurs 13.05"
   },
   {
     "front": "ei matpakke",
@@ -12987,7 +12987,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 21.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05, Norskkurs 21.05"
   },
   {
     "front": "lunsj",
@@ -12995,7 +12995,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 21.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05, Norskkurs 21.05"
   },
   {
     "front": "middag",
@@ -13011,7 +13011,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05"
   },
   {
     "front": "et mellommåltid",
@@ -13043,7 +13043,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 06.05"
   },
   {
     "front": "en skinke",
@@ -13051,7 +13051,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 06.05, Norskkurs 13.05, Norskkurs 20.05"
   },
   {
     "front": "et syltetøy",
@@ -13059,7 +13059,7 @@
     "type": "vocab",
     "tag": "repas",
     "pos": "nom",
-    "source": "Norskkurs 06.05, Norskkurs 13.05"
+    "source": "Norskkurs 06.05"
   },
   {
     "front": "et egg",
@@ -14043,7 +14043,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 13.05"
+    "source": "Norskkurs 13.05, Norskkurs 20.05, Samtaletime 22.05"
   },
   {
     "front": "en gulost",
@@ -14155,7 +14155,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 13.05"
+    "source": "Norskkurs 13.05, Norskkurs 20.05"
   },
   {
     "front": "en agurk",
@@ -14163,7 +14163,7 @@
     "type": "vocab",
     "tag": "nourriture",
     "pos": "nom",
-    "source": "Norskkurs 13.05"
+    "source": "Norskkurs 13.05, Norskkurs 20.05"
   },
   {
     "front": "en paprika",

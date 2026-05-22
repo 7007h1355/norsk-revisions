@@ -64,15 +64,66 @@ RECAP_VERBS = "_recap_verbes"
 
 
 def normalize_fr(s: str) -> str:
-    """Sort key: lowercase, strip leading articles/quotes, accent-fold."""
+    """Aggressive sort key for French headwords.
+
+    - lowercase + accent-fold
+    - strip leading articles, partitives, prepositions
+    - strip leading parenthesised qualifiers, e.g. "(téléphone) portable" → "portable"
+    - strip any remaining non-alpha leading char (commas, dashes, quotes)
+    """
+    import re
     import unicodedata
     s = s.strip().lower()
-    for prefix in ("le ", "la ", "les ", "l'", "un ", "une ", "des ", "à ", "au ", "aux "):
+    for prefix in (
+        "le ", "la ", "les ", "l'",
+        "un ", "une ", "des ",
+        "du ", "de la ", "de l'", "de ", "d'",
+        "à la ", "à l'", "à ", "au ", "aux ",
+    ):
         if s.startswith(prefix):
             s = s[len(prefix):]
             break
+    # strip leading parenthesised qualifier only if there's word content AFTER it
+    # ("(téléphone) portable" -> "portable", but "(provenance)" alone is kept)
+    s = re.sub(r"^\([^)]*\)\s+(?=\S)", "", s)
+    # strip trailing gender/short qualifier "(e)", "(s)", "(es)"
+    s = re.sub(r"\((?:e|s|es)\)\s*$", "", s).strip()
+    # NFD + drop combining marks (accents)
     s = "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
+    # drop all non-alphanumeric chars so "à/sur" sorts as "asur" and joins the 'a' bucket
+    # cleanly (spaces would still break ASCII ordering because ' ' < 'b').
+    s = re.sub(r"[^a-z0-9]+", "", s)
     return s
+
+
+def is_number_entry(card: dict) -> bool:
+    """Detect numeric/temporal entries. Catches '0', '8h30', 'un (1)', '3 756'."""
+    import re
+    back = (card.get("back") or "").strip()
+    # Skip entries without any digit (avoids false positives on prepositions like 'de (provenance)')
+    if not re.search(r"\d", back):
+        return False
+    if re.match(r"^\d", back):
+        return True
+    if re.match(r"^\d", normalize_fr(back) or ""):
+        return True
+    return False
+
+
+def number_key(card: dict) -> tuple:
+    """Sort by numeric value extracted from the back side (spaces in 1 000 ignored)."""
+    import re
+    back = (card.get("back") or "").strip()
+    # join leading digit-and-space cluster: "3 756" -> 3756, "8h30" -> 8
+    m = re.match(r"^([\d ]+)", back) or re.search(r"(\d+)", back)
+    if m:
+        try:
+            n = int(m.group(1).replace(" ", ""))
+        except ValueError:
+            n = 99999
+    else:
+        n = 99999
+    return (n, back.lower())
 
 
 def is_valid_entry(card: dict) -> bool:
@@ -107,24 +158,56 @@ def is_verb(card: dict) -> bool:
     return False
 
 
+def normalize_no(s: str) -> str:
+    """Norwegian normalize: lowercase, strip leading 'en/ei/et ' articles."""
+    s = (s or "").strip().lower()
+    for prefix in ("en ", "ei ", "et "):
+        if s.startswith(prefix):
+            s = s[len(prefix):]
+            break
+    return s
+
+
 def dedupe(cards: list[dict]) -> list[dict]:
+    """Merge entries that point to the same word in both languages.
+
+    Key = (norwegian word without article, french word normalized).
+    Different nuances like 'aimer' vs 'aimer (d'amour)' stay separate because the
+    parenthesised qualifier is preserved in the FR normalizer.
+    """
     seen = {}
     for c in cards:
-        key = (c.get("front", "").strip().lower(), c.get("back", "").strip().lower())
+        key = (normalize_no(c.get("front", "")), normalize_fr(c.get("back", "")))
         if key not in seen:
             seen[key] = c
         else:
-            # merge sources
             existing = seen[key]
-            srcs = set(filter(None, [existing.get("source", ""), c.get("source", "")]))
-            existing["source"] = ", ".join(sorted(srcs))
+            srcs = set(filter(None,
+                [existing.get("source", ""), c.get("source", "")]
+            ))
+            # split comma-separated sources to dedupe
+            all_srcs = set()
+            for s in srcs:
+                all_srcs.update(p.strip() for p in s.split(",") if p.strip())
+            existing["source"] = ", ".join(sorted(all_srcs))
     return list(seen.values())
 
 
 def build_recap_vocab(cards: list[dict]) -> str:
     vocab = [c for c in cards if is_valid_entry(c) and not is_verb(c) and c.get("type") in (None, "vocab", "verbe")]
     vocab = dedupe(vocab)
-    vocab.sort(key=lambda c: normalize_fr(c.get("back", "")))
+    numbers = [c for c in vocab if is_number_entry(c)]
+    words = [c for c in vocab if not is_number_entry(c)]
+    words.sort(key=lambda c: normalize_fr(c.get("back", "")))
+    numbers.sort(key=number_key)
+
+    def render_row(c):
+        fr = c.get("back", "").replace("|", "\\|")
+        no = c.get("front", "").replace("|", "\\|")
+        t = c.get("pos", c.get("type", ""))
+        src = c.get("source", "")
+        return f"| {fr} | {no} | {t} | {src} |"
+
     lines = [
         "---",
         "title: Récapitulatif — Vocabulaire (A→Z français)",
@@ -134,17 +217,27 @@ def build_recap_vocab(cards: list[dict]) -> str:
         "",
         "# 📚 Récapitulatif vocabulaire",
         "",
-        f"_{len(vocab)} entrées, triées par traduction française. Auto-régénéré à chaque ajout de leçon._",
+        f"_{len(words)} mots + {len(numbers)} nombres, triés par traduction française. Auto-régénéré à chaque ajout de leçon._",
+        "",
+        "## Mots",
         "",
         "| Français | Norsk (bokmål) | Type | Source |",
         "|---|---|---|---|",
     ]
-    for c in vocab:
-        fr = c.get("back", "").replace("|", "\\|")
-        no = c.get("front", "").replace("|", "\\|")
-        t = c.get("pos", c.get("type", ""))
-        src = c.get("source", "")
-        lines.append(f"| {fr} | {no} | {t} | {src} |")
+    lines.extend(render_row(c) for c in words)
+    if numbers:
+        lines += [
+            "",
+            "## Nombres",
+            "",
+            "| Français | Norsk | Source |",
+            "|---|---|---|",
+        ]
+        for c in numbers:
+            fr = c.get("back", "").replace("|", "\\|")
+            no = c.get("front", "").replace("|", "\\|")
+            src = c.get("source", "")
+            lines.append(f"| {fr} | {no} | {src} |")
     return "\n".join(lines) + "\n"
 
 
