@@ -21,16 +21,6 @@
       "source": "auto"
     },
     {
-      "slug": "Fasit oppgaver Kap 2",
-      "title": "Corrigés — Chapitre 2 (Activités, professions, questions et négation)",
-      "source": "Fasit oppgaver Kap 2.md",
-      "themes": "[professions, activités quotidiennes, salutations, questions, négation, lieux de travail]",
-      "niveau": "A1",
-      "path": "fiches/Fasit oppgaver Kap 2.md",
-      "card_count": 86,
-      "kind": "lesson"
-    },
-    {
       "slug": "Fasit oppgaver kap 1",
       "title": "Corrigés — Chapitre 1 (Présentations et questions de base)",
       "source": "Fasit oppgaver kap 1.md",
@@ -41,6 +31,16 @@
       "kind": "lesson"
     },
     {
+      "slug": "Fasit oppgaver Kap 2",
+      "title": "Corrigés — Chapitre 2 (Activités, professions, questions et négation)",
+      "source": "Fasit oppgaver Kap 2.md",
+      "themes": "[professions, activités quotidiennes, salutations, questions, négation, lieux de travail]",
+      "niveau": "A1",
+      "path": "fiches/Fasit oppgaver Kap 2.md",
+      "card_count": 86,
+      "kind": "lesson"
+    },
+    {
       "slug": "Hei og velkommen",
       "title": "Bienvenue (Hei og velkommen)",
       "source": "Hei og velkommen.md",
@@ -48,6 +48,26 @@
       "niveau": "A1",
       "path": "fiches/Hei og velkommen.md",
       "card_count": 134,
+      "kind": "lesson"
+    },
+    {
+      "slug": "lesson_01_intro",
+      "title": "Leçon 1 — Salutations et présentations",
+      "source": "_mock/lesson_01_intro.txt",
+      "themes": "[salutations, présentation, pronoms, verbe-être]",
+      "niveau": "A1",
+      "path": "fiches/lesson_01_intro.md",
+      "card_count": 22,
+      "kind": "lesson"
+    },
+    {
+      "slug": "Samliv_og_familie_i_Norge",
+      "title": "Famille et vie commune en Norvège",
+      "source": "Samliv_og_familie_i_Norge.md",
+      "themes": "[famille, couple, mariage, société, valeurs]",
+      "niveau": "A2",
+      "path": "fiches/Samliv_og_familie_i_Norge.md",
+      "card_count": 90,
       "kind": "lesson"
     },
     {
@@ -81,26 +101,6 @@
       "kind": "lesson"
     },
     {
-      "slug": "Norskkurs 05.05",
-      "title": "Cours du 05/05 — Familieliv - vie de famille (Kap. 4)",
-      "source": "Norskkurs 05.05.md",
-      "themes": "[famille, cuisine, petit-déjeuner, substantifs, formes définies, prépositions]",
-      "niveau": "A1",
-      "path": "fiches/Norskkurs 05.05.md",
-      "card_count": 102,
-      "kind": "lesson"
-    },
-    {
-      "slug": "Norskkurs 06.05",
-      "title": "Cours du 06/05 — Famille, repas et pronoms",
-      "source": "Norskkurs 06.05.md",
-      "themes": "[famille, repas, pronoms, prépositions, génitif]",
-      "niveau": "A1",
-      "path": "fiches/Norskkurs 06.05.md",
-      "card_count": 127,
-      "kind": "lesson"
-    },
-    {
       "slug": "Norskkurs 08.04",
       "title": "Cours du 08/04 — Hva gjør de? — Activités, jours de la semaine",
       "source": "Norskkurs 08.04.md",
@@ -131,16 +131,6 @@
       "kind": "lesson"
     },
     {
-      "slug": "Norskkurs 13.05",
-      "title": "Cours du 13/05 — Famille, prépositions de lieu, repas et routine matinale",
-      "source": "Norskkurs 13.05.md",
-      "themes": "[famille, prépositions, repas, routine, verbes modaux]",
-      "niveau": "A1",
-      "path": "fiches/Norskkurs 13.05.md",
-      "card_count": 133,
-      "kind": "lesson"
-    },
-    {
       "slug": "Norskkurs 15.04",
       "title": "Cours du 15/04 — Chapitre 3 — En god venn (à la fête)",
       "source": "Norskkurs 15.04.md",
@@ -158,26 +148,6 @@
       "niveau": "A1",
       "path": "fiches/Norskkurs 16.04.md",
       "card_count": 197,
-      "kind": "lesson"
-    },
-    {
-      "slug": "Norskkurs 20.05",
-      "title": "Cours du 20/05 — Routines, repas, maison et l'heure",
-      "source": "Norskkurs 20.05.md",
-      "themes": "[routine quotidienne, adverbes de temps, nourriture, maison, famille, heure]",
-      "niveau": "A1",
-      "path": "fiches/Norskkurs 20.05.md",
-      "card_count": 71,
-      "kind": "lesson"
-    },
-    {
-      "slug": "Norskkurs 21.05",
-      "title": "Cours du 21/05 — L'heure et routines quotidiennes",
-      "source": "Norskkurs 21.05.md",
-      "themes": "[heure, routine, verbes réfléchis, tidsuttrykk]",
-      "niveau": "A1",
-      "path": "fiches/Norskkurs 21.05.md",
-      "card_count": 79,
       "kind": "lesson"
     },
     {
@@ -201,13 +171,53 @@
       "kind": "lesson"
     },
     {
-      "slug": "Samliv_og_familie_i_Norge",
-      "title": "Famille et vie commune en Norvège",
-      "source": "Samliv_og_familie_i_Norge.md",
-      "themes": "[famille, couple, mariage, société, valeurs]",
-      "niveau": "A2",
-      "path": "fiches/Samliv_og_familie_i_Norge.md",
-      "card_count": 90,
+      "slug": "Norskkurs 05.05",
+      "title": "Cours du 05/05 — Familieliv - vie de famille (Kap. 4)",
+      "source": "Norskkurs 05.05.md",
+      "themes": "[famille, cuisine, petit-déjeuner, substantifs, formes définies, prépositions]",
+      "niveau": "A1",
+      "path": "fiches/Norskkurs 05.05.md",
+      "card_count": 102,
+      "kind": "lesson"
+    },
+    {
+      "slug": "Norskkurs 06.05",
+      "title": "Cours du 06/05 — Famille, repas et pronoms",
+      "source": "Norskkurs 06.05.md",
+      "themes": "[famille, repas, pronoms, prépositions, génitif]",
+      "niveau": "A1",
+      "path": "fiches/Norskkurs 06.05.md",
+      "card_count": 127,
+      "kind": "lesson"
+    },
+    {
+      "slug": "Norskkurs 13.05",
+      "title": "Cours du 13/05 — Famille, prépositions de lieu, repas et routine matinale",
+      "source": "Norskkurs 13.05.md",
+      "themes": "[famille, prépositions, repas, routine, verbes modaux]",
+      "niveau": "A1",
+      "path": "fiches/Norskkurs 13.05.md",
+      "card_count": 133,
+      "kind": "lesson"
+    },
+    {
+      "slug": "Norskkurs 20.05",
+      "title": "Cours du 20/05 — Routines, repas, maison et l'heure",
+      "source": "Norskkurs 20.05.md",
+      "themes": "[routine quotidienne, adverbes de temps, nourriture, maison, famille, heure]",
+      "niveau": "A1",
+      "path": "fiches/Norskkurs 20.05.md",
+      "card_count": 71,
+      "kind": "lesson"
+    },
+    {
+      "slug": "Norskkurs 21.05",
+      "title": "Cours du 21/05 — L'heure et routines quotidiennes",
+      "source": "Norskkurs 21.05.md",
+      "themes": "[heure, routine, verbes réfléchis, tidsuttrykk]",
+      "niveau": "A1",
+      "path": "fiches/Norskkurs 21.05.md",
+      "card_count": 79,
       "kind": "lesson"
     },
     {
@@ -218,16 +228,6 @@
       "niveau": "A2",
       "path": "fiches/Samtaletime 22.05.md",
       "card_count": 120,
-      "kind": "lesson"
-    },
-    {
-      "slug": "lesson_01_intro",
-      "title": "Leçon 1 — Salutations et présentations",
-      "source": "_mock/lesson_01_intro.txt",
-      "themes": "[salutations, présentation, pronoms, verbe-être]",
-      "niveau": "A1",
-      "path": "fiches/lesson_01_intro.md",
-      "card_count": 22,
       "kind": "lesson"
     }
   ]

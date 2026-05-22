@@ -10,7 +10,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 
 | Français | Infinitif norsk | Source |
 |---|---|---|
-| acheter | å kjøpe | Norskkurs 03.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 20.05, Norskkurs 22.04 |
+| acheter | å kjøpe | Norskkurs 03.04, Norskkurs 10.04, Norskkurs 16.04, Norskkurs 22.04, Norskkurs 20.05 |
 | acheter, faire les courses | å handle | Norskkurs 20.05 |
 | adopter | å adoptere | Samliv_og_familie_i_Norge |
 | aider | å hjelpe | Norskkurs 05.05, Norskkurs 20.05 |
@@ -34,8 +34,8 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | attendre | å vente | Norskkurs 16.04, Norskkurs 22.04 |
 | attendre (qqn/qqch) | å vente på | Samtaletime 22.05 |
 | avoir | å ha | Fasit oppgaver Kap 2, Norskkurs 03.04, Norskkurs 09.04 |
-| avoir envie de | å ha lyst på | Norskkurs 13.05 |
 | avoir envie de | å ha lyst til | Norskkurs 21.05, Norskkurs 22.04 |
+| avoir envie de | å ha lyst på | Norskkurs 13.05 |
 | avoir faim | å være sulten | Norskkurs 05.05 |
 | avoir fini, être prêt | å være ferdig | Norskkurs 05.05 |
 | avoir l'habitude de | å pleie å | Norskkurs 21.05 |
@@ -43,7 +43,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | avoir le temps de (+ verbe) | å ha tid til å | Norskkurs 05.05 |
 | avoir soif | å være tørst | Norskkurs 05.05 |
 | bâiller | å gjespe | Samtaletime 22.05 |
-| boire | å drikke | Fasit oppgaver Kap 2, Norskkurs 05.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 20.05, Norskkurs 21.05, Norskkurs 23.04, Samtaletime 22.05 |
+| boire | å drikke | Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 23.04, Norskkurs 05.05, Norskkurs 20.05, Norskkurs 21.05, Samtaletime 22.05 |
 | brosser | å børste | Norskkurs 13.05 |
 | chanter | å synge | Norskkurs 09.04 |
 | choisir | å velge | Samliv_og_familie_i_Norge |
@@ -52,7 +52,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | composer (sur un clavier) | å taste | Norskkurs 22.04 |
 | comprendre | å forstå | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 03.04, Norskkurs 08.04 |
 | comprendre (forstår) | å forstå | Norskkurs 02.04 |
-| conduire | å kjøre | Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 13.05, Norskkurs 15.04, Norskkurs 20.05 |
+| conduire | å kjøre | Fasit oppgaver Kap 2, Norskkurs 09.04, Norskkurs 15.04, Norskkurs 13.05, Norskkurs 20.05 |
 | conjuguer / plier | å bøye | Hei og velkommen |
 | contracter, conclure | å inngå | Samliv_og_familie_i_Norge |
 | coudre | å sy | Hei og velkommen, Norskkurs 09.04 |
@@ -90,8 +90,8 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | entendre | å høre | Hei og velkommen |
 | entrer | å gå inn | Norskkurs 15.04 |
 | épeler | å stave | Fasit oppgaver kap 1, Norskkurs 02.04 |
-| essayer | å prøve | Hei og velkommen, Norskkurs 21.05, Norskkurs 23.04 |
-| être | å være | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 13.05, Norskkurs 15.04, Norskkurs 23.04, lesson_01_intro |
+| essayer | å prøve | Hei og velkommen, Norskkurs 23.04, Norskkurs 21.05 |
+| être | å være | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 15.04, Norskkurs 23.04, Norskkurs 13.05 |
 | être (irrégulier: er) | å være | Norskkurs 02.04 |
 | être assis | å sitte | Norskkurs 15.04, Samtaletime 22.05 |
 | être bien coiffé | å være fin på håret | Norskkurs 05.05 |
@@ -120,7 +120,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | faire une rando, un tour | å gå på tur | Norskkurs 10.04 |
 | faire, préparer | å lage | Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 20.05 |
 | frapper | å slå | Samliv_og_familie_i_Norge |
-| habiter | å bo | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, Samliv_og_familie_i_Norge, lesson_01_intro |
+| habiter | å bo | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Samliv_og_familie_i_Norge, Norskkurs 01.04, Norskkurs 02.04 |
 | hériter | å arve | Samliv_og_familie_i_Norge |
 | inviter | å invitere | Norskkurs 16.04 |
 | jouer (enfants) | å leke | Norskkurs 15.04, Norskkurs 20.05 |
@@ -129,7 +129,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | laver | å vaske | Samtaletime 22.05 |
 | laver, nettoyer | å vaske | Norskkurs 13.05 |
 | lire | å lese | Fasit oppgaver Kap 2, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 20.05, Samtaletime 22.05 |
-| manger | å spise | Norskkurs 02.04, Norskkurs 05.05, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 21.05, Samtaletime 22.05 |
+| manger | å spise | Norskkurs 02.04, Norskkurs 08.04, Norskkurs 09.04, Norskkurs 05.05, Norskkurs 21.05, Samtaletime 22.05 |
 | manger le repas léger du soir | å spise kveldsmat | Norskkurs 08.04 |
 | manquer (à qqun) | å savne | Norskkurs 16.04 |
 | mettre des vêtements / s'habiller | å ta på seg klær | Samtaletime 22.05 |
@@ -165,7 +165,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | répondre | å svare | Norskkurs 16.04, Norskkurs 22.04 |
 | réveiller (qqn) | å vekke | Samtaletime 22.05 |
 | réveiller (quelqu'un) | å vekke | Norskkurs 13.05 |
-| s'appeler | å hete | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 02.04, lesson_01_intro |
+| s'appeler | å hete | Fasit oppgaver Kap 2, Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 02.04 |
 | s'asseoir | å sette seg | Norskkurs 15.04 |
 | s'entraîner | å trene | Norskkurs 20.05 |
 | s'habiller | å ta på klær | Norskkurs 13.05 |
@@ -202,7 +202,7 @@ _200 verbes (infinitif), triés par traduction française. Auto-régénéré à 
 | trancher, découper | å skjære | Norskkurs 05.05 |
 | travailler | å jobbe | Fasit oppgaver Kap 2, Norskkurs 03.04, Norskkurs 08.04, Norskkurs 21.05, Samtaletime 22.05 |
 | trouver | å finne | Norskkurs 05.05 |
-| venir | å komme | Fasit oppgaver kap 1, Hei og velkommen, Norskkurs 01.04, Norskkurs 16.04, lesson_01_intro |
+| venir | å komme | Fasit oppgaver kap 1, Hei og velkommen, lesson_01_intro, Norskkurs 01.04, Norskkurs 16.04 |
 | venir avec, en être | å bli med | Norskkurs 16.04 |
 | venir, arriver | å komme | Norskkurs 02.04, Norskkurs 15.04 |
 | vivre | å leve | Samliv_og_familie_i_Norge |

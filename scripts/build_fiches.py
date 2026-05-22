@@ -174,13 +174,28 @@ def build_recap_verbs(cards: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _sort_key(fp: Path) -> tuple:
+    """Sort fiches chronologically. Extract DD.MM from filename, else fallback alpha."""
+    m = re.search(r"(\d{2})\.(\d{2})", fp.stem)
+    if m:
+        dd, mm = int(m.group(1)), int(m.group(2))
+        # Norwegian school year: April-May months. Use (mm, dd) so April < May.
+        return (0, mm, dd, fp.stem.lower())
+    # Fasit/Samliv/Hei before dated lessons
+    return (-1, 0, 0, fp.stem.lower())
+
+
 def update_index() -> None:
     """Aggregate all fiches into fiches/index.json (for PWA), regen recaps."""
     entries = []
     all_cards = []
-    for fp in sorted(FICHES.glob("*.md")):
-        if fp.stem.startswith("_recap_"):
-            continue  # skip aggregated recaps, rebuilt below
+    fiche_files = sorted(
+        (fp for fp in FICHES.glob("*.md") if not fp.stem.startswith("_recap_")),
+        key=_sort_key,
+    )
+    for fp in fiche_files:
+        if False:  # placeholder to keep diff minimal
+            pass
         text = fp.read_text()
         fm = {}
         if text.startswith("---"):
