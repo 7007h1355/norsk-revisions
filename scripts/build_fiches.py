@@ -394,6 +394,10 @@ def update_index() -> None:
     (FICHES / f"{RECAP_VOCAB}.md").write_text(recap_vocab_md)
     (FICHES / f"{RECAP_VERBS}.md").write_text(recap_verbs_md)
 
+    # Dedupe the flat flashcard pool so the Flashcards page doesn't show the same
+    # `å være = être` six times when the prof repeats it across lessons.
+    flashcards = dedupe([c for c in all_cards if is_valid_entry(c)])
+
     n_vocab = recap_vocab_md.count("\n| ") - 1  # rows minus header
     n_verbs = recap_verbs_md.count("\n| ") - 1
     entries.insert(0, {
@@ -408,8 +412,8 @@ def update_index() -> None:
     })
 
     (FICHES / "index.json").write_text(json.dumps({"fiches": entries}, ensure_ascii=False, indent=2))
-    (FICHES / "flashcards.json").write_text(json.dumps(all_cards, ensure_ascii=False, indent=2))
-    print(f"[fiches] index: {len(entries)} fiches, {len(all_cards)} cartes (recap vocab={n_vocab}, verbes={n_verbs})")
+    (FICHES / "flashcards.json").write_text(json.dumps(flashcards, ensure_ascii=False, indent=2))
+    print(f"[fiches] index: {len(entries)} fiches, {len(all_cards)} → {len(flashcards)} cartes uniques (recap vocab={n_vocab}, verbes={n_verbs})")
 
 
 def main() -> int:

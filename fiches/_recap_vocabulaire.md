@@ -544,7 +544,7 @@ _821 mots + 28 nombres, triés par traduction française. Auto-régénéré à c
 | un ordinateur | en PC | nom | Norskkurs 08.04 |
 | un oreiller / un coussin | ei pute | nom | Samtaletime 22.05 |
 | Oslo | Oslo | nom | Fasit oppgaver kap 1 (+1) |
-| où | hvor / eller / Hvor? | adv | Fasit oppgaver kap 1 (+3) |
+| ou | hvor / eller / Hvor? | adv | Fasit oppgaver kap 1 (+3) |
 | oui | ja | interj | Fasit oppgaver kap 1 (+1) |
 | ouvrier du bâtiment | en bygningsarbeider | nom | Norskkurs 10.04 |
 | une page | en side | nom | Hei og velkommen |
