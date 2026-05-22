@@ -1,0 +1,252 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import { loadFlashcards, loadSrs, saveSrs, cardId, nextReview } from "../lib/data.js";
+import { speak, loadVoices, NoNorskVoiceError } from "../lib/tts.js";
+import { toast } from "../lib/toast.js";
+import { useNavigate } from "react-router-dom";
+
+function vibrate(pattern) {
+  try { navigator.vibrate?.(pattern); } catch {}
+}
+
+function safeSpeak(navigate) {
+  return (text) => speak(text).catch((e) => {
+    if (e instanceof NoNorskVoiceError) {
+      toast("Aucune voix norvégienne installée", {
+        type: "warn",
+        action: { label: "Réglages", onClick: () => navigate("/settings") },
+      });
+    } else {
+      toast(`Audio: ${e.message}`, { type: "warn" });
+    }
+  });
+}
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function pickDistractors(target, pool, n = 3) {
+  const sameTag = pool.filter(c => c.tag === target.tag && c.back !== target.back);
+  const others = pool.filter(c => c.back !== target.back);
+  const candidates = (sameTag.length >= n ? sameTag : others);
+  // de-dupe by back to avoid showing the same answer twice
+  const seen = new Set();
+  const uniq = [];
+  for (const c of shuffle(candidates)) {
+    if (seen.has(c.back)) continue;
+    seen.add(c.back);
+    uniq.push(c);
+    if (uniq.length >= n) break;
+  }
+  return uniq;
+}
+
+export default function Flashcards() {
+  const [cards, setCards] = useState(null);
+  const [srs, setSrs] = useState(loadSrs());
+  const [tag, setTag] = useState("all");
+  const [mode, setMode] = useState(() => localStorage.getItem("norsk.mode") || "reveal");
+  const [idx, setIdx] = useState(0);
+  const [shown, setShown] = useState(false);
+  const [qcm, setQcm] = useState(null);   // { options:[card,...], picked:null|idx }
+  const [swipeClass, setSwipeClass] = useState("");
+  const touchRef = useRef({ x: 0, y: 0, startX: 0, dx: 0, dy: 0 });
+
+  const navigate = useNavigate();
+  const speakSafe = safeSpeak(navigate);
+
+  useEffect(() => { loadFlashcards().then(setCards).catch(() => setCards([])); }, []);
+  useEffect(() => { loadVoices(); }, []);   // warm up voice list
+  useEffect(() => { localStorage.setItem("norsk.mode", mode); }, [mode]);
+
+  const tags = useMemo(() => {
+    if (!cards) return [];
+    const s = new Set(cards.map(c => c.tag).filter(Boolean));
+    return ["all", ...Array.from(s).sort()];
+  }, [cards]);
+
+  const queue = useMemo(() => {
+    if (!cards) return [];
+    const now = Date.now();
+    return cards
+      .filter(c => tag === "all" || c.tag === tag)
+      .map(c => ({ card: c, state: srs[cardId(c)] || {} }))
+      .sort((a, b) => (a.state.due || 0) - (b.state.due || 0))
+      .filter(x => !x.state.due || x.state.due <= now || x.state.reps === undefined);
+  }, [cards, srs, tag]);
+
+  // (re)build QCM options when card changes in qcm mode
+  useEffect(() => {
+    if (mode !== "qcm" || !queue.length || !cards) { setQcm(null); return; }
+    const cur = queue[idx % queue.length];
+    const distractors = pickDistractors(cur.card, cards, 3);
+    const options = shuffle([cur.card, ...distractors]);
+    setQcm({ options, picked: null });
+  }, [mode, idx, cards, queue]);
+
+  if (!cards) return <p>Chargement…</p>;
+  if (!cards.length) return <p>Pas encore de cartes — génère des fiches d'abord.</p>;
+
+  const header = (
+    <>
+      <ModeSwitch mode={mode} setMode={(m) => { setMode(m); setShown(false); setIdx(0); }} />
+      <TagPicker tags={tags} tag={tag} setTag={(t) => { setTag(t); setIdx(0); setShown(false); }} />
+    </>
+  );
+
+  if (!queue.length) return (
+    <div className="flashcards">
+      {header}
+      <div className="empty">
+        <h2>✅ Rien à réviser ici</h2>
+        <p>Reviens plus tard, ou change de catégorie.</p>
+      </div>
+    </div>
+  );
+
+  const cur = queue[idx % queue.length];
+  const c = cur.card;
+
+  function rate(quality) {
+    vibrate(quality === 0 ? [40, 30, 40] : 20);
+    const id = cardId(c);
+    const next = nextReview(cur.state, quality);
+    const updated = { ...srs, [id]: next };
+    setSrs(updated);
+    saveSrs(updated);
+    setShown(false);
+    setIdx(i => i + 1);
+  }
+
+  function onPick(i) {
+    if (qcm.picked !== null) return;
+    const correct = qcm.options[i].back === c.back;
+    vibrate(correct ? 25 : [40, 40, 80]);
+    setQcm(q => ({ ...q, picked: i }));
+  }
+
+  function onTouchStart(e) {
+    const t = e.touches[0];
+    touchRef.current = { x: t.clientX, y: t.clientY, startX: t.clientX, dx: 0, dy: 0 };
+  }
+  function onTouchMove(e) {
+    const t = e.touches[0];
+    touchRef.current.dx = t.clientX - touchRef.current.startX;
+    touchRef.current.dy = t.clientY - touchRef.current.y;
+  }
+  function onTouchEnd() {
+    const { dx, dy } = touchRef.current;
+    if (Math.abs(dx) > 90 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      const dir = dx < 0 ? "left" : "right";
+      setSwipeClass(`swipe-out-${dir}`);
+      vibrate(15);
+      // left = "À revoir" (quality 0), right = "OK" (quality 2)
+      setTimeout(() => {
+        setSwipeClass("");
+        rate(dir === "left" ? 0 : 2);
+      }, 180);
+    }
+    touchRef.current = { x: 0, y: 0, startX: 0, dx: 0, dy: 0 };
+  }
+
+  if (mode === "qcm") {
+    return (
+      <div className="flashcards">
+        {header}
+        <div className="card qcm">
+          <div className="front">
+            <span className="lang-tag">norsk</span>
+            <span className="text">{c.front}</span>
+            <button className="speak" onClick={(e) => { e.stopPropagation(); speakSafe(c.front); }}>🔊</button>
+          </div>
+          <p className="tap-hint">Choisis la bonne traduction :</p>
+          <div className="choices">
+            {qcm?.options.map((opt, i) => {
+              const correct = opt.back === c.back;
+              const picked = qcm.picked === i;
+              const revealed = qcm.picked !== null;
+              const cls = !revealed ? "" : correct ? "good" : picked ? "bad" : "dim";
+              return (
+                <button
+                  key={i}
+                  className={`choice ${cls}`}
+                  onClick={() => onPick(i)}
+                >
+                  {opt.back}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+        {qcm?.picked !== null && qcm?.picked !== undefined && (
+          <div className="rate">
+            <button onClick={() => rate(0)}>😖 À revoir</button>
+            <button onClick={() => rate(1)}>🤔 Dur</button>
+            <button onClick={() => rate(2)}>🙂 OK</button>
+            <button onClick={() => rate(3)}>😎 Facile</button>
+          </div>
+        )}
+        <p className="progress">{queue.length} à réviser · {cards.length} total</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flashcards">
+      {header}
+      <div
+        className={`card ${swipeClass}`}
+        onClick={() => setShown(s => !s)}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <div className="front">
+          <span className="lang-tag">norsk</span>
+          <span className="text">{c.front}</span>
+          <button className="speak" onClick={(e) => { e.stopPropagation(); speakSafe(c.front); }}>🔊</button>
+        </div>
+        {shown && (
+          <div className="back">
+            <span className="lang-tag">FR</span>
+            <span className="text">{c.back}</span>
+          </div>
+        )}
+        {!shown && <p className="tap-hint">Tape pour voir · Swipe ← à revoir / → OK</p>}
+      </div>
+      {shown && (
+        <div className="rate">
+          <button onClick={() => rate(0)}>😖 À revoir</button>
+          <button onClick={() => rate(1)}>🤔 Dur</button>
+          <button onClick={() => rate(2)}>🙂 OK</button>
+          <button onClick={() => rate(3)}>😎 Facile</button>
+        </div>
+      )}
+      <p className="progress">{queue.length} à réviser · {cards.length} total</p>
+    </div>
+  );
+}
+
+function ModeSwitch({ mode, setMode }) {
+  return (
+    <div className="mode-switch">
+      <button className={mode === "reveal" ? "on" : ""} onClick={() => setMode("reveal")}>🃏 Carte</button>
+      <button className={mode === "qcm" ? "on" : ""} onClick={() => setMode("qcm")}>📝 QCM</button>
+    </div>
+  );
+}
+
+function TagPicker({ tags, tag, setTag }) {
+  return (
+    <div className="tags">
+      {tags.map(t => (
+        <button key={t} className={t === tag ? "on" : ""} onClick={() => setTag(t)}>{t}</button>
+      ))}
+    </div>
+  );
+}

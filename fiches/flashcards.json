@@ -1,0 +1,160 @@
+[
+  {
+    "front": "Hei",
+    "back": "Salut",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "God dag",
+    "back": "Bonjour (formel)",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Ha det",
+    "back": "Au revoir",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Takk",
+    "back": "Merci",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Vær så snill",
+    "back": "S'il te plaît",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Ja",
+    "back": "Oui",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Nei",
+    "back": "Non",
+    "type": "vocab",
+    "tag": "salutations",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "jeg",
+    "back": "je",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "du",
+    "back": "tu",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "han",
+    "back": "il",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "hun",
+    "back": "elle",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "vi",
+    "back": "nous",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "dere",
+    "back": "vous",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "de",
+    "back": "ils/elles",
+    "type": "vocab",
+    "tag": "pronoms",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Jeg heter Anna",
+    "back": "Je m'appelle Anna",
+    "type": "expression",
+    "tag": "présentation",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Hva heter du?",
+    "back": "Comment t'appelles-tu ?",
+    "type": "expression",
+    "tag": "présentation",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Jeg er fra Frankrike",
+    "back": "Je viens de France",
+    "type": "expression",
+    "tag": "présentation",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "Hvor kommer du fra?",
+    "back": "D'où viens-tu ?",
+    "type": "expression",
+    "tag": "présentation",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "å være",
+    "back": "être",
+    "type": "verbe",
+    "pos": "verbe",
+    "tag": "verbes",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "å hete",
+    "back": "s'appeler",
+    "type": "verbe",
+    "pos": "verbe",
+    "tag": "verbes",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "å komme",
+    "back": "venir",
+    "type": "verbe",
+    "pos": "verbe",
+    "tag": "verbes",
+    "source": "lesson_01_intro"
+  },
+  {
+    "front": "å bo",
+    "back": "habiter",
+    "type": "verbe",
+    "pos": "verbe",
+    "tag": "verbes",
+    "source": "lesson_01_intro"
+  }
+]

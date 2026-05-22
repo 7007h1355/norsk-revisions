@@ -1,0 +1,34 @@
+{
+  "fiches": [
+    {
+      "slug": "_recap_vocabulaire",
+      "title": "📚 Vocabulaire (A→Z FR)",
+      "kind": "recap",
+      "path": "fiches/_recap_vocabulaire.md",
+      "card_count": 14,
+      "niveau": "",
+      "themes": "",
+      "source": "auto"
+    },
+    {
+      "slug": "_recap_verbes",
+      "title": "🔁 Verbes (A→Z FR)",
+      "kind": "recap",
+      "path": "fiches/_recap_verbes.md",
+      "card_count": 4,
+      "niveau": "",
+      "themes": "",
+      "source": "auto"
+    },
+    {
+      "slug": "lesson_01_intro",
+      "title": "Leçon 1 — Salutations et présentations",
+      "source": "_mock/lesson_01_intro.txt",
+      "themes": "[salutations, présentation, pronoms, verbe-être]",
+      "niveau": "A1",
+      "path": "fiches/lesson_01_intro.md",
+      "card_count": 22,
+      "kind": "lesson"
+    }
+  ]
+}

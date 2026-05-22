@@ -1,0 +1,15 @@
+{
+  "name": "norsk-revisions",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "sync": ".venv/bin/python scripts/sync_drive.py",
+    "extract": ".venv/bin/python scripts/extract_text.py",
+    "extract:all": ".venv/bin/python scripts/extract_text.py --all",
+    "fiches": ".venv/bin/python scripts/build_fiches.py",
+    "fiches:all": ".venv/bin/python scripts/build_fiches.py --all",
+    "pipeline": "npm run sync && npm run extract && npm run fiches",
+    "dev": "npm run dev --prefix app",
+    "build": "npm run build --prefix app"
+  }
+}

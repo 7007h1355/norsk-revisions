@@ -1,0 +1,131 @@
+name: Sync Drive & deploy
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # quotidien 06:00 UTC (~07:00/08:00 FR)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "fiches/**"
+      - "app/**"
+      - ".github/workflows/**"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: "norsk-sync"
+  cancel-in-progress: false
+
+jobs:
+  sync-and-extract:
+    runs-on: ubuntu-latest
+    outputs:
+      new_files: ${{ steps.diff.outputs.count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python deps
+        run: pip install gdown python-docx python-pptx pdfplumber
+
+      - name: Sync from public Drive folder
+        run: python scripts/sync_drive.py
+
+      - name: Extract text from new/modified docs
+        run: python scripts/extract_text.py
+
+      - name: Count files to summarize
+        id: diff
+        run: |
+          if [ -f scripts/.todo_summarize.txt ]; then
+            count=$(grep -c . scripts/.todo_summarize.txt || true)
+          else
+            count=0
+          fi
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Files to summarize: $count"
+
+      - name: Commit raw + text changes
+        run: |
+          git config user.name "norsk-bot"
+          git config user.email "bot@norsk-revisions.local"
+          git add cours-raw cours-text scripts/.sync_state.json scripts/.todo_extract.txt scripts/.todo_summarize.txt 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "sync: auto-update cours-raw + cours-text"
+            git push
+          fi
+
+      - name: Open issue if new courses need summarizing
+        if: steps.diff.outputs.count != '0' && steps.diff.outputs.count != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const list = fs.readFileSync('scripts/.todo_summarize.txt', 'utf8').trim();
+            const body = [
+              `**${{ steps.diff.outputs.count }} nouveau(x) cours détecté(s)** dans le dossier Drive.`,
+              ``,
+              'Fichiers à résumer:',
+              '```',
+              list,
+              '```',
+              '',
+              'Sur ton Mac, lance:',
+              '```',
+              'cd ~/Projets/norsk-revisions',
+              'git pull',
+              'npm run fiches    # appelle Claude CLI sur les nouveaux cours',
+              'git add fiches && git commit -m "fiches: $(date +%F)" && git push',
+              '```',
+              '',
+              'La PWA se redéploiera automatiquement après le push.',
+            ].join('\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📚 ${{ steps.diff.outputs.count }} cours à résumer — ${new Date().toISOString().slice(0,10)}`,
+              body,
+              labels: ['todo'],
+            });
+
+  build-and-deploy:
+    needs: sync-and-extract
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install app deps
+        run: npm ci --prefix app
+
+      - name: Build PWA
+        run: npm run build --prefix app
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app/dist
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
