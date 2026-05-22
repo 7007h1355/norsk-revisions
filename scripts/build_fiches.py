@@ -5,6 +5,7 @@ Lit .todo_summarize.txt (ou --all), appelle `claude -p` pour chaque,
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import shutil
@@ -49,14 +50,31 @@ def run_claude(course_text: str, source_name: str) -> str:
 
 
 def extract_flashcards(md: str) -> list[dict]:
-    m = re.search(r"```json\s*(\[.*?\])\s*```", md, re.DOTALL)
-    if not m:
-        return []
-    try:
-        cards = json.loads(m.group(1))
-        return cards if isinstance(cards, list) else []
-    except json.JSONDecodeError:
-        return []
+    """Extract the flashcard JSON array from a fiche.
+
+    Tolerant of:
+      - ```json fenced block (canonical)
+      - bare ``` fenced block
+      - no fence at all (find JSON array after the 'Flashcards' heading)
+    Trailing commas before ``]`` are also stripped.
+    """
+    # 1) Try ```json or ``` fenced block containing an array
+    for pat in (
+        r"```(?:json)?\s*(\[\s*\{.*?\}\s*\])\s*```",
+        r"(?:Flashcards|flashcards).*?(\[\s*\{.*?\}\s*\])",
+    ):
+        m = re.search(pat, md, re.DOTALL)
+        if m:
+            raw = m.group(1)
+            # tolerate trailing commas
+            cleaned = re.sub(r",\s*([\]}])", r"\1", raw)
+            try:
+                cards = json.loads(cleaned)
+                if isinstance(cards, list):
+                    return cards
+            except json.JSONDecodeError:
+                continue
+    return []
 
 
 RECAP_VOCAB = "_recap_vocabulaire"
@@ -111,19 +129,30 @@ def is_number_entry(card: dict) -> bool:
 
 
 def number_key(card: dict) -> tuple:
-    """Sort by numeric value extracted from the back side (spaces in 1 000 ignored)."""
+    """Sort by numeric value extracted from the back side.
+
+    '3 756'  -> 3756     (spaces collapsed)
+    '8h30'   -> 830      (HhMM concatenated so '8h30' sorts after '8' and before '9h')
+    '12:30'  -> 1230
+    'un (1)' -> 1
+    """
     import re
     back = (card.get("back") or "").strip()
-    # join leading digit-and-space cluster: "3 756" -> 3756, "8h30" -> 8
+    # HH(h|:)MM form
+    m_time = re.match(r"^(\d+)\s*[h:]\s*(\d+)", back)
+    if m_time:
+        try:
+            return (int(m_time.group(1)) * 100 + int(m_time.group(2)), back.lower())
+        except ValueError:
+            pass
+    # Plain leading number, possibly with internal spaces ('3 756')
     m = re.match(r"^([\d ]+)", back) or re.search(r"(\d+)", back)
     if m:
         try:
-            n = int(m.group(1).replace(" ", ""))
+            return (int(m.group(1).replace(" ", "")), back.lower())
         except ValueError:
-            n = 99999
-    else:
-        n = 99999
-    return (n, back.lower())
+            pass
+    return (99999, back.lower())
 
 
 def is_valid_entry(card: dict) -> bool:
@@ -362,8 +391,6 @@ def update_index() -> None:
         key=_sort_key,
     )
     for fp in fiche_files:
-        if False:  # placeholder to keep diff minimal
-            pass
         text = fp.read_text()
         fm = {}
         if text.startswith("---"):
@@ -375,6 +402,8 @@ def update_index() -> None:
                         k, v = line.split(":", 1)
                         fm[k.strip()] = v.strip()
         cards = extract_flashcards(text)
+        if not cards:
+            print(f"[fiches] WARN: {fp.name} has 0 flashcards (parsing failed?)", file=sys.stderr)
         for c in cards:
             c["source"] = fp.stem
         all_cards.extend(cards)
@@ -436,6 +465,7 @@ def main() -> int:
 
     FICHES.mkdir(exist_ok=True)
     force = "--force" in sys.argv
+    prompt_hash = hashlib.sha1(PROMPT.encode("utf-8")).hexdigest()[:10]
     ok = 0
     skipped = 0
     for rel in targets:
@@ -443,18 +473,33 @@ def main() -> int:
         if not src.exists():
             print(f"[fiches] missing {src}", file=sys.stderr)
             continue
+        course = src.read_text()
+        # Skip only if the destination already exists AND was built from the same source
+        # text AND the same prompt. Editing prompt_fiche.md or the upstream cours-text/
+        # therefore invalidates the cache automatically.
+        src_hash = hashlib.sha1(course.encode("utf-8")).hexdigest()[:10]
         dst = FICHES / Path(rel).name
         if dst.exists() and not force:
-            print(f"[fiches] skip {rel} (déjà fait, --force pour regen)")
-            skipped += 1
-            continue
-        course = src.read_text()
+            head = dst.read_text(errors="replace")[:600]
+            cached_src = re.search(r"^source_hash:\s*(\S+)", head, re.MULTILINE)
+            cached_prompt = re.search(r"^prompt_hash:\s*(\S+)", head, re.MULTILINE)
+            if (cached_src and cached_src.group(1) == src_hash
+                    and cached_prompt and cached_prompt.group(1) == prompt_hash):
+                print(f"[fiches] skip {rel} (source+prompt inchangés)")
+                skipped += 1
+                continue
         print(f"[fiches] summarizing {rel} ...", flush=True)
         try:
             md = run_claude(course, rel)
         except Exception as e:
             print(f"[fiches] FAIL {rel}: {e}", file=sys.stderr)
             continue
+        # Inject hashes into the frontmatter so we can skip on subsequent runs.
+        if md.startswith("---"):
+            end = md.find("\n---", 3)
+            if end > 0:
+                inject = f"\nsource_hash: {src_hash}\nprompt_hash: {prompt_hash}"
+                md = md[:end] + inject + md[end:]
         dst.write_text(md)
         ok += 1
         print(f"[fiches] wrote {dst.relative_to(ROOT)}")

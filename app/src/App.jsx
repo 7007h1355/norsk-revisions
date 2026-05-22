@@ -8,10 +8,14 @@ import Settings from "./pages/Settings.jsx";
 
 function InstallPrompt() {
   const [deferred, setDeferred] = useState(null);
+  const [showIosHint, setShowIosHint] = useState(false);
   const [installed, setInstalled] = useState(
     () => window.matchMedia("(display-mode: standalone)").matches ||
           window.navigator.standalone === true
   );
+
+  // iOS Safari does NOT fire `beforeinstallprompt` — install is manual via Share → Add to Home.
+  const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
   useEffect(() => {
     const onBeforeInstall = (e) => { e.preventDefault(); setDeferred(e); };
@@ -24,15 +28,46 @@ function InstallPrompt() {
     };
   }, []);
 
-  if (installed || !deferred) return null;
-  return (
-    <button className="install-btn" onClick={async () => {
-      await deferred.prompt();
-      setDeferred(null);
-    }}>
-      📲 Installer l'app
-    </button>
-  );
+  if (installed) return null;
+
+  // Chrome/Android: native prompt available.
+  if (deferred) {
+    return (
+      <button className="install-btn" onClick={async () => {
+        await deferred.prompt();
+        setDeferred(null);
+      }}>
+        📲 Installer
+      </button>
+    );
+  }
+
+  // iOS Safari: render a button that opens an instructions modal.
+  if (isIos) {
+    return (
+      <>
+        <button className="install-btn" onClick={() => setShowIosHint(true)}>
+          📲 Installer
+        </button>
+        {showIosHint && (
+          <div className="install-modal-backdrop" onClick={() => setShowIosHint(false)}>
+            <div className="install-modal" onClick={e => e.stopPropagation()}>
+              <h3>📲 Installer sur iPhone / iPad</h3>
+              <ol>
+                <li>Touche le bouton <strong>Partager</strong> en bas (carré avec flèche ↑)</li>
+                <li>Fais défiler et choisis <strong>« Sur l'écran d'accueil »</strong></li>
+                <li>Touche <strong>Ajouter</strong> en haut à droite</li>
+              </ol>
+              <p className="hint">L'app fonctionnera ensuite hors-ligne et comme une vraie app.</p>
+              <button className="test-btn" onClick={() => setShowIosHint(false)}>OK</button>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
+
+  return null;
 }
 
 function ScrollToTop() {

@@ -1,4 +1,10 @@
-"""Sync Google Drive shared folder → cours-raw/, detect changes via hash."""
+"""Sync Google Drive shared folder → cours-raw/, detect changes via hash.
+
+Strategy:
+1. Download fresh snapshot into a staging dir (atomic; partial downloads can't corrupt state).
+2. Diff the *staging* tree against persisted `state` → adds/modifications/removals.
+3. Promote staging → cours-raw/ and delete anything the snapshot no longer contains.
+"""
 from __future__ import annotations
 
 import hashlib
@@ -13,6 +19,8 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "cours-raw"
 STATE = ROOT / "scripts" / ".sync_state.json"
 DRIVE_URL_FILE = ROOT / "scripts" / "drive_url.txt"
+
+EXTS = {".pdf", ".docx", ".pptx", ".ppsx", ".doc", ".ppt", ".txt"}
 
 
 def file_hash(p: Path) -> str:
@@ -40,24 +48,27 @@ def download(url: str, target: Path) -> None:
 
 
 def collect_files(root: Path) -> list[Path]:
-    exts = {".pdf", ".docx", ".pptx", ".ppsx", ".doc", ".ppt", ".txt"}
-    return [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in exts]
+    return [p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in EXTS]
 
 
-def diff(state: dict, files: list[Path]) -> tuple[list[Path], list[Path], list[str]]:
-    new_state = {}
-    added, modified = [], []
+def diff(
+    state: dict, files: list[Path], base: Path
+) -> tuple[list[str], list[str], list[str], dict]:
+    """Compute (added_rels, modified_rels, removed_rels, new_state) relative to `base`."""
+    new_state: dict = {}
+    added: list[str] = []
+    modified: list[str] = []
     for p in files:
-        rel = str(p.relative_to(RAW))
+        rel = str(p.relative_to(base))
         h = file_hash(p)
         new_state[rel] = h
         prev = state.get(rel)
         if prev is None:
-            added.append(p)
+            added.append(rel)
         elif prev != h:
-            modified.append(p)
+            modified.append(rel)
     removed = [k for k in state if k not in new_state]
-    return added, modified, removed, new_state  # type: ignore[return-value]
+    return added, modified, removed, new_state
 
 
 def main() -> int:
@@ -66,42 +77,52 @@ def main() -> int:
         return 2
     url = DRIVE_URL_FILE.read_text().strip().splitlines()[0]
 
-    # Work in a staging dir so partial downloads don't corrupt state.
-    staging = RAW / "_staging"
+    # Atomic snapshot in a sibling dir (outside RAW so collect_files can't see it).
+    staging = ROOT / ".sync_staging"
     if staging.exists():
         shutil.rmtree(staging)
     try:
         download(url, staging)
     except Exception as e:
         print(f"[sync] download failed: {e}", file=sys.stderr)
+        shutil.rmtree(staging, ignore_errors=True)
         return 1
 
-    # Promote staging into RAW root (preserving relative tree).
-    for src in staging.rglob("*"):
-        if not src.is_file():
-            continue
+    # Diff against the fresh snapshot — lets us detect files deleted on Drive.
+    state = load_state()
+    staged_files = [p for p in collect_files(staging) if "_mock" not in p.parts]
+    added, modified, removed, new_state = diff(state, staged_files, staging)
+
+    # Promote staging → RAW.
+    RAW.mkdir(parents=True, exist_ok=True)
+    for src in staged_files:
         rel = src.relative_to(staging)
         dst = RAW / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dst)
-    shutil.rmtree(staging)
 
-    state = load_state()
-    files = [p for p in collect_files(RAW) if "_mock" not in p.parts and "_staging" not in p.parts]
-    added, modified, removed, new_state = diff(state, files)
+    # Remove anything in RAW that the snapshot no longer contains (preserve _mock).
+    for p in collect_files(RAW):
+        if "_mock" in p.parts:
+            continue
+        rel = str(p.relative_to(RAW))
+        if rel not in new_state:
+            p.unlink()
+
+    shutil.rmtree(staging, ignore_errors=True)
     save_state(new_state)
 
     print(f"[sync] added={len(added)} modified={len(modified)} removed={len(removed)}")
-    for p in added:
-        print(f"  + {p.relative_to(RAW)}")
-    for p in modified:
-        print(f"  ~ {p.relative_to(RAW)}")
+    for r in added:
+        print(f"  + {r}")
+    for r in modified:
+        print(f"  ~ {r}")
     for r in removed:
         print(f"  - {r}")
 
-    # Emit list of files needing reprocessing (for downstream extract step).
+    # Emit list of files needing reprocessing (rel paths under cours-raw/).
     todo = ROOT / "scripts" / ".todo_extract.txt"
-    todo.write_text("\n".join(str(p.relative_to(RAW)) for p in added + modified))
+    todo.write_text("\n".join(added + modified))
     return 0
 
 

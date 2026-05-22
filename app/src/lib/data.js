@@ -1,4 +1,4 @@
-const BASE = import.meta.env.BASE_URL || "./";
+const BASE = import.meta.env.BASE_URL;
 
 export async function loadIndex() {
   const r = await fetch(`${BASE}fiches/index.json`);
@@ -28,7 +28,13 @@ export function loadSrs() {
 export function saveSrs(s) { localStorage.setItem(STORE_KEY, JSON.stringify(s)); }
 
 export function cardId(card) {
-  return `${card.source || ""}::${card.front}`;
+  // Stable across renames/dedupes: keyed on the norsk word + the FR primary,
+  // independent of which lesson contributed it. Renaming a source file or
+  // re-merging duplicates therefore preserves the user's SRS progress.
+  const front = (card.front || "").trim().toLowerCase();
+  // FR primary = before first '/' or '(' (matches scripts/build_fiches.py primary_fr)
+  const back = (card.back || "").split(/[/(]/)[0].trim().toLowerCase();
+  return `${front}::${back}`;
 }
 
 export function nextReview(state, quality) {

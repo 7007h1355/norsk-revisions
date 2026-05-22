@@ -31,18 +31,20 @@ function shuffle(arr) {
 }
 
 function pickDistractors(target, pool, n = 3) {
-  const sameTag = pool.filter(c => c.tag === target.tag && c.back !== target.back);
-  const others = pool.filter(c => c.back !== target.back);
-  const candidates = (sameTag.length >= n ? sameTag : others);
-  // de-dupe by back to avoid showing the same answer twice
-  const seen = new Set();
+  // Try same-tag candidates first, then fall through to the whole pool so we ALWAYS get N
+  // distinct distractors even when the tag is tiny or has many cards sharing the same `back`.
+  const seen = new Set([target.back]);
   const uniq = [];
-  for (const c of shuffle(candidates)) {
-    if (seen.has(c.back)) continue;
-    seen.add(c.back);
-    uniq.push(c);
-    if (uniq.length >= n) break;
-  }
+  const take = (list) => {
+    for (const c of shuffle(list)) {
+      if (seen.has(c.back)) continue;
+      seen.add(c.back);
+      uniq.push(c);
+      if (uniq.length >= n) return true;
+    }
+    return false;
+  };
+  take(pool.filter(c => c.tag === target.tag)) || take(pool);
   return uniq;
 }
 
@@ -70,15 +72,20 @@ export default function Flashcards() {
     return ["all", ...Array.from(s).sort()];
   }, [cards]);
 
+  // Build the session queue ONCE per (cards, tag) change. Including `srs` in the deps
+  // would cause the queue to rebuild after every rate(), filtering out the card you just
+  // graded and shifting `idx` so subsequent cards get skipped.
   const queue = useMemo(() => {
     if (!cards) return [];
     const now = Date.now();
-    return cards
+    const built = cards
       .filter(c => tag === "all" || c.tag === tag)
       .map(c => ({ card: c, state: srs[cardId(c)] || {} }))
-      .sort((a, b) => (a.state.due || 0) - (b.state.due || 0))
-      .filter(x => !x.state.due || x.state.due <= now || x.state.reps === undefined);
-  }, [cards, srs, tag]);
+      .filter(x => !x.state.due || x.state.due <= now || x.state.reps === undefined)
+      .sort((a, b) => (a.state.due || 0) - (b.state.due || 0));
+    return built;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cards, tag]);
 
   // (re)build QCM options when card changes in qcm mode
   useEffect(() => {
@@ -109,7 +116,20 @@ export default function Flashcards() {
     </div>
   );
 
-  const cur = queue[idx % queue.length];
+  // Session done: idx ran past the end of the snapshot queue.
+  if (idx >= queue.length) {
+    return (
+      <div className="flashcards">
+        {header}
+        <div className="empty">
+          <h2>🎉 Session terminée</h2>
+          <p>{queue.length} carte{queue.length > 1 ? "s" : ""} révisée{queue.length > 1 ? "s" : ""} dans « {tag} ».</p>
+          <button className="test-btn" style={{ marginTop: 16, width: "auto", padding: "10px 20px" }} onClick={() => { setIdx(0); }}>↺ Rejouer cette session</button>
+        </div>
+      </div>
+    );
+  }
+  const cur = queue[idx];
   const c = cur.card;
 
   function rate(quality) {

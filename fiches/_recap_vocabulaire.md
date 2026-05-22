@@ -488,7 +488,7 @@ _737 mots + 27 nombres, triés par traduction française. Auto-régénéré à c
 | un ordinateur | en PC | nom | Norskkurs 08.04 |
 | un oreiller / un coussin | ei pute | nom | Samtaletime 22.05 |
 | Oslo | Oslo | nom | Fasit oppgaver kap 1 (+1) |
-| ou | hvor / eller / Hvor? | adv | Fasit oppgaver kap 1 (+3) |
+| où | hvor / eller / Hvor? | adv | Fasit oppgaver kap 1 (+3) |
 | oui | ja | interj | Fasit oppgaver kap 1 (+1) |
 | ouvrier du bâtiment | en bygningsarbeider | nom | Norskkurs 10.04 |
 | une page | en side | nom | Hei og velkommen |
@@ -764,7 +764,6 @@ _737 mots + 27 nombres, triés par traduction française. Auto-régénéré à c
 | 6 | seks | Norskkurs 15.04 |
 | 7 | sju / syv | Norskkurs 15.04 |
 | 8 | åtte | Norskkurs 15.04 |
-| 8h30 (litt. demi vers 9) | halv ni | Norskkurs 21.05 |
 | 9 | ni | Norskkurs 15.04 |
 | 10 | ti | Norskkurs 15.04 |
 | 11 | elleve | Norskkurs 15.04 |
@@ -779,5 +778,6 @@ _737 mots + 27 nombres, triés par traduction française. Auto-régénéré à c
 | 20 | tjue / tyve | Norskkurs 15.04 |
 | 105 | et hundre og fem | Norskkurs 22.04 |
 | 215 | to hundre og femten | Norskkurs 22.04 |
+| 8h30 (litt. demi vers 9) | halv ni | Norskkurs 21.05 |
 | 3 756 | tre tusen sju hundre og femtiseks | Norskkurs 22.04 |
 | 72 312 | syttito tusen tre hundre og tolv | Norskkurs 22.04 |

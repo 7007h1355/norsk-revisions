@@ -39,21 +39,32 @@ def extract_pptx(p: Path) -> str:
     # .ppsx (PowerPoint Show) has a different content type and python-pptx refuses to open it.
     # Workaround: rewrite the inner content type to the presentation one in a temp copy.
     src = p
-    if p.suffix.lower() == ".ppsx":
-        import shutil, tempfile, zipfile, re
-        tmp = Path(tempfile.mkstemp(suffix=".pptx")[1])
-        shutil.copy(p, tmp)
-        # rewrite [Content_Types].xml inside the zip
-        with zipfile.ZipFile(tmp, "r") as zin:
-            data = {n: zin.read(n) for n in zin.namelist()}
-        ct = data["[Content_Types].xml"].decode("utf-8")
-        ct = ct.replace("presentationml.slideshow.main+xml", "presentationml.presentation.main+xml")
-        data["[Content_Types].xml"] = ct.encode("utf-8")
-        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
-            for n, d in data.items():
-                zout.writestr(n, d)
-        src = tmp
-    prs = Presentation(src)
+    tmp = None
+    try:
+        if p.suffix.lower() == ".ppsx":
+            import os, shutil, tempfile, zipfile
+            fd, tmp_path = tempfile.mkstemp(suffix=".pptx")
+            os.close(fd)
+            tmp = Path(tmp_path)
+            shutil.copy(p, tmp)
+            with zipfile.ZipFile(tmp, "r") as zin:
+                data = {n: zin.read(n) for n in zin.namelist()}
+            ct = data["[Content_Types].xml"].decode("utf-8")
+            ct = ct.replace("presentationml.slideshow.main+xml",
+                            "presentationml.presentation.main+xml")
+            data["[Content_Types].xml"] = ct.encode("utf-8")
+            with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+                for n, d in data.items():
+                    zout.writestr(n, d)
+            src = tmp
+        prs = Presentation(src)
+        return _render_pptx(prs)
+    finally:
+        if tmp is not None:
+            tmp.unlink(missing_ok=True)
+
+
+def _render_pptx(prs) -> str:
     out = []
     for i, slide in enumerate(prs.slides, 1):
         chunks = [f"## Slide {i}"]

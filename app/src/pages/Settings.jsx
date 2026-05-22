@@ -44,11 +44,8 @@ export default function Settings() {
     trySpeak(SAMPLE);
   };
 
-  const useGoogle = () => {
-    setEngine("google");
-    setEngineState("google");
-    trySpeak(SAMPLE);
-  };
+  // Google Translate TTS fallback est cassé (CORS) — code de retour conservé pour réactivation.
+  // const useGoogle = () => { setEngine("google"); setEngineState("google"); trySpeak(SAMPLE); };
 
   const onRate = (v) => {
     setRate(v);
@@ -90,18 +87,12 @@ export default function Settings() {
         <button className="test-btn" onClick={() => trySpeak(SAMPLE)}>▶ Tester</button>
       </div>
 
-      <div className="setting-card">
-        <div className="row">
-          <label>Moteur Google Translate (fallback en ligne)</label>
-          <button
-            className={`toggle ${engine === "google" ? "on" : ""}`}
-            onClick={() => engine === "google" ? (setEngine("speech"), setEngineState("speech")) : useGoogle()}
-          >
-            {engine === "google" ? "✓ Activé" : "Activer"}
-          </button>
-        </div>
-        <p className="hint">Utilise Google Translate TTS si aucune voix norvégienne n'est installée sur ton appareil. Nécessite internet.</p>
-      </div>
+      {/*
+        L'endpoint translate.google.com/translate_tts est bloqué par CORS sur la plupart des
+        navigateurs depuis 2023. Le toggle est masqué pour éviter de proposer une option
+        qui échoue silencieusement. Réactiver si on branche un vrai TTS backend (Azure,
+        ElevenLabs, ResponsiveVoice, etc.).
+      */}
 
       <h3>Voix disponibles</h3>
       {noNorsk && (

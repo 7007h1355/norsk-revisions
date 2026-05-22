@@ -103,8 +103,15 @@ jobs:
   build-and-deploy:
     needs: sync-and-extract
     runs-on: ubuntu-latest
+    # Deploy even when sync-and-extract failed so the PWA stays available with the last
+    # successful state — but log the failure loudly so it's not silently ignored.
     if: always()
     steps:
+      - name: Warn if sync failed
+        if: needs.sync-and-extract.result != 'success'
+        run: |
+          echo "::warning::sync-and-extract finished with status '${{ needs.sync-and-extract.result }}' — deploying previous state of fiches/." >&2
+
       - uses: actions/checkout@v4
         with:
           ref: main
