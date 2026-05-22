@@ -19,6 +19,20 @@ PROMPT = (ROOT / "scripts" / "prompt_fiche.md").read_text()
 CLAUDE_BIN = shutil.which("claude") or "claude"
 
 
+def strip_md_fence(text: str) -> str:
+    """Claude sometimes wraps its response in a ```markdown fence; strip it."""
+    t = text.strip()
+    if t.startswith("```"):
+        # remove opening fence (optionally with language tag)
+        first_nl = t.find("\n")
+        if first_nl > 0:
+            t = t[first_nl + 1:]
+        # remove closing fence
+        if t.rstrip().endswith("```"):
+            t = t.rstrip()[:-3].rstrip()
+    return t.strip()
+
+
 def run_claude(course_text: str, source_name: str) -> str:
     user_msg = f"{PROMPT}\n\n---\nNOM FICHIER SOURCE: {source_name}\n\n---\nTEXTE DU COURS:\n\n{course_text}"
     # `claude -p` runs in print/non-interactive mode and returns the response on stdout.
@@ -31,7 +45,7 @@ def run_claude(course_text: str, source_name: str) -> str:
     )
     if proc.returncode != 0:
         raise RuntimeError(f"claude failed (rc={proc.returncode}): {proc.stderr.strip()}")
-    return proc.stdout.strip()
+    return strip_md_fence(proc.stdout)
 
 
 def extract_flashcards(md: str) -> list[dict]:
@@ -61,11 +75,36 @@ def normalize_fr(s: str) -> str:
     return s
 
 
+def is_valid_entry(card: dict) -> bool:
+    """Reject malformed flashcards: notes/sentences misclassified as vocab entries."""
+    front = (card.get("front") or "").strip()
+    back = (card.get("back") or "").strip()
+    if not front or not back:
+        return False
+    if len(front) > 40 or len(back) > 60:
+        return False
+    if any(sep in front for sep in ("→", "=", "...")):
+        return False
+    if back.count(" ") > 6:   # back is a full sentence, not a translation
+        return False
+    return True
+
+
 def is_verb(card: dict) -> bool:
-    if card.get("type") == "verbe" or card.get("pos") == "verbe":
+    if not is_valid_entry(card):
+        return False
+    front = (card.get("front") or "").strip()
+    # exclude exclamations/questions
+    if any(p in front for p in "!?.,;:"):
+        return False
+    # require "å X" where X starts with a lowercase letter (real infinitive)
+    lower = front.lower()
+    if lower.startswith("å ") and len(lower) > 2 and lower[2].isalpha() and lower[2] == lower[2].lower():
         return True
-    front = (card.get("front") or "").strip().lower()
-    return front.startswith("å ") or front.startswith("aa ")
+    if card.get("type") == "verbe" or card.get("pos") == "verbe":
+        # trust Claude's tag but still require front looks like infinitive
+        return lower.startswith("å ") or lower.startswith("aa ")
+    return False
 
 
 def dedupe(cards: list[dict]) -> list[dict]:
@@ -83,7 +122,7 @@ def dedupe(cards: list[dict]) -> list[dict]:
 
 
 def build_recap_vocab(cards: list[dict]) -> str:
-    vocab = [c for c in cards if not is_verb(c) and c.get("type") in (None, "vocab", "verbe")]
+    vocab = [c for c in cards if is_valid_entry(c) and not is_verb(c) and c.get("type") in (None, "vocab", "verbe")]
     vocab = dedupe(vocab)
     vocab.sort(key=lambda c: normalize_fr(c.get("back", "")))
     lines = [
@@ -208,11 +247,18 @@ def main() -> int:
         return 0
 
     FICHES.mkdir(exist_ok=True)
+    force = "--force" in sys.argv
     ok = 0
+    skipped = 0
     for rel in targets:
         src = TEXT / rel
         if not src.exists():
             print(f"[fiches] missing {src}", file=sys.stderr)
+            continue
+        dst = FICHES / Path(rel).name
+        if dst.exists() and not force:
+            print(f"[fiches] skip {rel} (déjà fait, --force pour regen)")
+            skipped += 1
             continue
         course = src.read_text()
         print(f"[fiches] summarizing {rel} ...", flush=True)
@@ -221,14 +267,13 @@ def main() -> int:
         except Exception as e:
             print(f"[fiches] FAIL {rel}: {e}", file=sys.stderr)
             continue
-        dst = FICHES / Path(rel).name
         dst.write_text(md)
         ok += 1
         print(f"[fiches] wrote {dst.relative_to(ROOT)}")
 
     update_index()
-    print(f"[fiches] {ok}/{len(targets)} done")
-    return 0 if ok == len(targets) else 1
+    print(f"[fiches] {ok} nouveaux, {skipped} ignorés (déjà faits), {len(targets) - ok - skipped} échecs")
+    return 0 if ok + skipped == len(targets) else 1
 
 
 if __name__ == "__main__":
