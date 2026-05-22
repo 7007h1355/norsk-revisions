@@ -494,11 +494,14 @@ def main() -> int:
         except Exception as e:
             print(f"[fiches] FAIL {rel}: {e}", file=sys.stderr)
             continue
-        # Inject hashes into the frontmatter so we can skip on subsequent runs.
+        # Inject `source` (raw filename stem) and cache hashes into the frontmatter.
+        # Claude no longer puts `source` in its output; we manage it here so that
+        # normalize_titles.py and update_index can still rely on it.
+        source_value = Path(rel).stem
         if md.startswith("---"):
             end = md.find("\n---", 3)
             if end > 0:
-                inject = f"\nsource_hash: {src_hash}\nprompt_hash: {prompt_hash}"
+                inject = f"\nsource: {source_value}\nsource_hash: {src_hash}\nprompt_hash: {prompt_hash}"
                 md = md[:end] + inject + md[end:]
         dst.write_text(md)
         ok += 1
