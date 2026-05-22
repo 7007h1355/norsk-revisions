@@ -201,11 +201,18 @@ def build_recap_vocab(cards: list[dict]) -> str:
     words.sort(key=lambda c: normalize_fr(c.get("back", "")))
     numbers.sort(key=number_key)
 
+    def short_src(src: str) -> str:
+        parts = [p.strip() for p in (src or "").split(",") if p.strip()]
+        if len(parts) <= 1:
+            return src or ""
+        # show first source + count of additional ones
+        return f"{parts[0]} (+{len(parts) - 1})"
+
     def render_row(c):
         fr = c.get("back", "").replace("|", "\\|")
         no = c.get("front", "").replace("|", "\\|")
         t = c.get("pos", c.get("type", ""))
-        src = c.get("source", "")
+        src = short_src(c.get("source", ""))
         return f"| {fr} | {no} | {t} | {src} |"
 
     lines = [
@@ -259,10 +266,16 @@ def build_recap_verbs(cards: list[dict]) -> str:
         "| Français | Infinitif norsk | Source |",
         "|---|---|---|",
     ]
+    def short_src(src: str) -> str:
+        parts = [p.strip() for p in (src or "").split(",") if p.strip()]
+        if len(parts) <= 1:
+            return src or ""
+        return f"{parts[0]} (+{len(parts) - 1})"
+
     for c in verbs:
         fr = c.get("back", "").replace("|", "\\|")
         no = c.get("front", "").replace("|", "\\|")
-        src = c.get("source", "")
+        src = short_src(c.get("source", ""))
         lines.append(f"| {fr} | {no} | {src} |")
     return "\n".join(lines) + "\n"
 
