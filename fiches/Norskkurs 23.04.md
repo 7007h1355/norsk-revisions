@@ -1,5 +1,5 @@
 ---
-title: Pluriel des noms & au kiosque
+title: Cours du 23/04 — Pluriel des noms & au kiosque
 source: Norskkurs 23.04.md
 themes: [substantif, pluriel, kiosk, prix, vocabulaire]
 niveau: A1

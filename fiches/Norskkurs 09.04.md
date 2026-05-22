@@ -1,5 +1,5 @@
 ---
-title: Norskkurs 09.04 - Jours, activités, substantifs (genre)
+title: Cours du 09/04 — Jours, activités, substantifs (genre)
 source: Norskkurs 09.04.md
 themes: [jours, activités, substantifs, genre, salutations, célébrités norvégiennes]
 niveau: A1

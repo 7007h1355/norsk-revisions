@@ -1,5 +1,5 @@
 ---
-title: Hei og velkommen
+title: Bienvenue (Hei og velkommen)
 source: Hei og velkommen.md
 themes: [présentation, alphabet, voyelles, consonnes, salutations, prononciation]
 niveau: A1

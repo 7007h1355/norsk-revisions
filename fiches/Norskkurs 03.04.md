@@ -1,5 +1,5 @@
 ---
-title: Phrases principales, conjonctions et mots interrogatifs
+title: Cours du 03/04 — Phrases principales, conjonctions et mots interrogatifs
 source: Norskkurs 03.04.md
 themes: [helsetning, V2, konjonksjoner, spørreord, négation]
 niveau: A1

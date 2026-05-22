@@ -1,5 +1,5 @@
 ---
-title: Kapittel 3 - En god venn (På fest)
+title: Cours du 15/04 — Chapitre 3 — En god venn (à la fête)
 source: Norskkurs 15.04.md
 themes: [amitié, fête, cadeaux, adverbes de lieu, nombres 0-20]
 niveau: A1

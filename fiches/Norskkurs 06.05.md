@@ -1,5 +1,5 @@
 ---
-title: Famille, repas et pronoms
+title: Cours du 06/05 — Famille, repas et pronoms
 source: Norskkurs 06.05.md
 themes: [famille, repas, pronoms, prépositions, génitif]
 niveau: A1

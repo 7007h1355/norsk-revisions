@@ -271,6 +271,13 @@ def main() -> int:
         ok += 1
         print(f"[fiches] wrote {dst.relative_to(ROOT)}")
 
+    # Normalize titles before building the index so the recap pages stay clean.
+    try:
+        import subprocess
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "normalize_titles.py")], check=False)
+    except Exception as e:
+        print(f"[fiches] normalize_titles skipped: {e}", file=sys.stderr)
+
     update_index()
     print(f"[fiches] {ok} nouveaux, {skipped} ignorés (déjà faits), {len(targets) - ok - skipped} échecs")
     return 0 if ok + skipped == len(targets) else 1

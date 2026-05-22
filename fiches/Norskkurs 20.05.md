@@ -1,5 +1,5 @@
 ---
-title: Routines, repas, maison et l'heure
+title: Cours du 20/05 — Routines, repas, maison et l'heure
 source: Norskkurs 20.05.md
 themes: [routine quotidienne, adverbes de temps, nourriture, maison, famille, heure]
 niveau: A1

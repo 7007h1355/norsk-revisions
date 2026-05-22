@@ -1,5 +1,5 @@
 ---
-title: Hva heter du? (Présentation, langues, pays)
+title: Cours du 01/04 — Hva heter du? (Présentation, langues, pays)
 source: Norskkurs 01.04.md
 themes: [présentation, identité, pays, langues, nationalités, verbes au présent]
 niveau: A1

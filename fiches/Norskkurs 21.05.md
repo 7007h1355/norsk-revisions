@@ -1,5 +1,5 @@
 ---
-title: Klokka og daglige rutiner
+title: Cours du 21/05 — L'heure et routines quotidiennes
 source: Norskkurs 21.05.md
 themes: [heure, routine, verbes réfléchis, tidsuttrykk]
 niveau: A1

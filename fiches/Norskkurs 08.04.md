@@ -1,5 +1,5 @@
 ---
-title: Hva gjør de? — Activités, jours de la semaine
+title: Cours du 08/04 — Hva gjør de? — Activités, jours de la semaine
 source: Norskkurs 08.04.md
 themes: [activités, verbes, jours-semaine, expressions-sociales]
 niveau: A1

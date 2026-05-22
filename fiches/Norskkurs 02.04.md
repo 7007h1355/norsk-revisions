@@ -1,5 +1,5 @@
 ---
-title: Norskkurs 02.04 — Épeler, pronoms personnels, verbes au présent
+title: Cours du 02/04 — Épeler, pronoms personnels, verbes au présent
 source: Norskkurs 02.04.md
 themes: [présentation, alphabet, épellation, pronoms personnels, verbes présent, négation, salutations]
 niveau: A1

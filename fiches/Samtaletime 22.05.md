@@ -1,5 +1,5 @@
 ---
-title: Samtaletime 22.05 — Fra morgen til kveld (la journée de Monica)
+title: Conversation du 22/05 — Fra morgen til kveld (la journée de Monica)
 source: Samtaletime 22.05.md
 themes: [routine quotidienne, heure, vocabulaire maison, vêtements, hygiène]
 niveau: A2

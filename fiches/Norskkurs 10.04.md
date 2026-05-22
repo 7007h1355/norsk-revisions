@@ -1,5 +1,5 @@
 ---
-title: Norskkurs 10.04 — Semaine, métiers, lieux de travail
+title: Cours du 10/04 — Semaine, métiers, lieux de travail
 source: Norskkurs 10.04.md
 themes: [salutations, jours, métiers, lieux, activités quotidiennes, vocabulaire]
 niveau: A1

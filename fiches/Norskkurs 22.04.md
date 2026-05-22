@@ -1,5 +1,5 @@
 ---
-title: Verbes d'affection, pronoms objets, adverbes de lieu, nombres
+title: Cours du 22/04 — Verbes d'affection, pronoms objets, adverbes de lieu, nombres
 source: Norskkurs 22.04.md
 themes: [affection, pronoms objet, adverbes lieu, nombres, sjalusi]
 niveau: A2

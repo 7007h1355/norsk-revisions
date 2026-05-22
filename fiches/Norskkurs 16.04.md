@@ -1,5 +1,5 @@
 ---
-title: Cinéma, pronoms objets, nombres, pluriel et kiosque
+title: Cours du 16/04 — Cinéma, pronoms objets, nombres, pluriel et kiosque
 source: Norskkurs 16.04.md
 themes: [cinéma, pronoms-objet, nombres, pluriel-substantifs, kiosque, prix]
 niveau: A1

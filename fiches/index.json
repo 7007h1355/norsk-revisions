@@ -22,7 +22,7 @@
     },
     {
       "slug": "Fasit oppgaver Kap 2",
-      "title": "Chapitre 2 — Activités, professions, questions et négation",
+      "title": "Corrigés — Chapitre 2 (Activités, professions, questions et négation)",
       "source": "Fasit oppgaver Kap 2.md",
       "themes": "[professions, activités quotidiennes, salutations, questions, négation, lieux de travail]",
       "niveau": "A1",
@@ -32,7 +32,7 @@
     },
     {
       "slug": "Fasit oppgaver kap 1",
-      "title": "Présentations et questions de base",
+      "title": "Corrigés — Chapitre 1 (Présentations et questions de base)",
       "source": "Fasit oppgaver kap 1.md",
       "themes": "[présentations, pronoms, pays, langues, questions]",
       "niveau": "A1",
@@ -42,7 +42,7 @@
     },
     {
       "slug": "Hei og velkommen",
-      "title": "Hei og velkommen",
+      "title": "Bienvenue (Hei og velkommen)",
       "source": "Hei og velkommen.md",
       "themes": "[présentation, alphabet, voyelles, consonnes, salutations, prononciation]",
       "niveau": "A1",
@@ -52,7 +52,7 @@
     },
     {
       "slug": "Norskkurs 01.04",
-      "title": "Hva heter du? (Présentation, langues, pays)",
+      "title": "Cours du 01/04 — Hva heter du? (Présentation, langues, pays)",
       "source": "Norskkurs 01.04.md",
       "themes": "[présentation, identité, pays, langues, nationalités, verbes au présent]",
       "niveau": "A1",
@@ -62,7 +62,7 @@
     },
     {
       "slug": "Norskkurs 02.04",
-      "title": "Norskkurs 02.04 — Épeler, pronoms personnels, verbes au présent",
+      "title": "Cours du 02/04 — Épeler, pronoms personnels, verbes au présent",
       "source": "Norskkurs 02.04.md",
       "themes": "[présentation, alphabet, épellation, pronoms personnels, verbes présent, négation, salutations]",
       "niveau": "A1",
@@ -72,7 +72,7 @@
     },
     {
       "slug": "Norskkurs 03.04",
-      "title": "Phrases principales, conjonctions et mots interrogatifs",
+      "title": "Cours du 03/04 — Phrases principales, conjonctions et mots interrogatifs",
       "source": "Norskkurs 03.04.md",
       "themes": "[helsetning, V2, konjonksjoner, spørreord, négation]",
       "niveau": "A1",
@@ -82,7 +82,7 @@
     },
     {
       "slug": "Norskkurs 05.05",
-      "title": "Familieliv - vie de famille (Kap. 4)",
+      "title": "Cours du 05/05 — Familieliv - vie de famille (Kap. 4)",
       "source": "Norskkurs 05.05.md",
       "themes": "[famille, cuisine, petit-déjeuner, substantifs, formes définies, prépositions]",
       "niveau": "A1",
@@ -92,7 +92,7 @@
     },
     {
       "slug": "Norskkurs 06.05",
-      "title": "Famille, repas et pronoms",
+      "title": "Cours du 06/05 — Famille, repas et pronoms",
       "source": "Norskkurs 06.05.md",
       "themes": "[famille, repas, pronoms, prépositions, génitif]",
       "niveau": "A1",
@@ -102,7 +102,7 @@
     },
     {
       "slug": "Norskkurs 08.04",
-      "title": "Hva gjør de? — Activités, jours de la semaine",
+      "title": "Cours du 08/04 — Hva gjør de? — Activités, jours de la semaine",
       "source": "Norskkurs 08.04.md",
       "themes": "[activités, verbes, jours-semaine, expressions-sociales]",
       "niveau": "A1",
@@ -112,7 +112,7 @@
     },
     {
       "slug": "Norskkurs 09.04",
-      "title": "Norskkurs 09.04 - Jours, activités, substantifs (genre)",
+      "title": "Cours du 09/04 — Jours, activités, substantifs (genre)",
       "source": "Norskkurs 09.04.md",
       "themes": "[jours, activités, substantifs, genre, salutations, célébrités norvégiennes]",
       "niveau": "A1",
@@ -122,7 +122,7 @@
     },
     {
       "slug": "Norskkurs 10.04",
-      "title": "Norskkurs 10.04 — Semaine, métiers, lieux de travail",
+      "title": "Cours du 10/04 — Semaine, métiers, lieux de travail",
       "source": "Norskkurs 10.04.md",
       "themes": "[salutations, jours, métiers, lieux, activités quotidiennes, vocabulaire]",
       "niveau": "A1",
@@ -132,7 +132,7 @@
     },
     {
       "slug": "Norskkurs 13.05",
-      "title": "Famille, prépositions de lieu, repas et routine matinale",
+      "title": "Cours du 13/05 — Famille, prépositions de lieu, repas et routine matinale",
       "source": "Norskkurs 13.05.md",
       "themes": "[famille, prépositions, repas, routine, verbes modaux]",
       "niveau": "A1",
@@ -142,7 +142,7 @@
     },
     {
       "slug": "Norskkurs 15.04",
-      "title": "Kapittel 3 - En god venn (På fest)",
+      "title": "Cours du 15/04 — Chapitre 3 — En god venn (à la fête)",
       "source": "Norskkurs 15.04.md",
       "themes": "[amitié, fête, cadeaux, adverbes de lieu, nombres 0-20]",
       "niveau": "A1",
@@ -152,7 +152,7 @@
     },
     {
       "slug": "Norskkurs 16.04",
-      "title": "Cinéma, pronoms objets, nombres, pluriel et kiosque",
+      "title": "Cours du 16/04 — Cinéma, pronoms objets, nombres, pluriel et kiosque",
       "source": "Norskkurs 16.04.md",
       "themes": "[cinéma, pronoms-objet, nombres, pluriel-substantifs, kiosque, prix]",
       "niveau": "A1",
@@ -162,7 +162,7 @@
     },
     {
       "slug": "Norskkurs 20.05",
-      "title": "Routines, repas, maison et l'heure",
+      "title": "Cours du 20/05 — Routines, repas, maison et l'heure",
       "source": "Norskkurs 20.05.md",
       "themes": "[routine quotidienne, adverbes de temps, nourriture, maison, famille, heure]",
       "niveau": "A1",
@@ -172,7 +172,7 @@
     },
     {
       "slug": "Norskkurs 21.05",
-      "title": "Klokka og daglige rutiner",
+      "title": "Cours du 21/05 — L'heure et routines quotidiennes",
       "source": "Norskkurs 21.05.md",
       "themes": "[heure, routine, verbes réfléchis, tidsuttrykk]",
       "niveau": "A1",
@@ -182,7 +182,7 @@
     },
     {
       "slug": "Norskkurs 22.04",
-      "title": "Verbes d'affection, pronoms objets, adverbes de lieu, nombres",
+      "title": "Cours du 22/04 — Verbes d'affection, pronoms objets, adverbes de lieu, nombres",
       "source": "Norskkurs 22.04.md",
       "themes": "[affection, pronoms objet, adverbes lieu, nombres, sjalusi]",
       "niveau": "A2",
@@ -192,7 +192,7 @@
     },
     {
       "slug": "Norskkurs 23.04",
-      "title": "Pluriel des noms & au kiosque",
+      "title": "Cours du 23/04 — Pluriel des noms & au kiosque",
       "source": "Norskkurs 23.04.md",
       "themes": "[substantif, pluriel, kiosk, prix, vocabulaire]",
       "niveau": "A1",
@@ -202,7 +202,7 @@
     },
     {
       "slug": "Samliv_og_familie_i_Norge",
-      "title": "Samliv og familie i Norge",
+      "title": "Famille et vie commune en Norvège",
       "source": "Samliv_og_familie_i_Norge.md",
       "themes": "[famille, couple, mariage, société, valeurs]",
       "niveau": "A2",
@@ -212,7 +212,7 @@
     },
     {
       "slug": "Samtaletime 22.05",
-      "title": "Samtaletime 22.05 — Fra morgen til kveld (la journée de Monica)",
+      "title": "Conversation du 22/05 — Fra morgen til kveld (la journée de Monica)",
       "source": "Samtaletime 22.05.md",
       "themes": "[routine quotidienne, heure, vocabulaire maison, vêtements, hygiène]",
       "niveau": "A2",

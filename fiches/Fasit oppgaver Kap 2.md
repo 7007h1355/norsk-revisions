@@ -1,5 +1,5 @@
 ---
-title: Chapitre 2 — Activités, professions, questions et négation
+title: Corrigés — Chapitre 2 (Activités, professions, questions et négation)
 source: Fasit oppgaver Kap 2.md
 themes: [professions, activités quotidiennes, salutations, questions, négation, lieux de travail]
 niveau: A1
