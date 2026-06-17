@@ -19,9 +19,10 @@
   --topbar-h: 52px;
 }
 
-* { box-sizing: border-box; }
-::-webkit-scrollbar { display: none; }
-* { scrollbar-width: none; }
+* { box-sizing: border-box; scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; }
+html { scrollbar-width: none; }
+html::-webkit-scrollbar { display: none; }
 
 html, body, #root {
   margin: 0;
