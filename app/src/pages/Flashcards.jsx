@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { loadFlashcards, loadSrs, saveSrs, cardId, nextReview } from "../lib/data.js";
+import { loadFlashcards, loadSrs, saveSrs, cardId, nextReview, touchStreak } from "../lib/data.js";
 import { speak, NoNorskVoiceError } from "../lib/tts.js";
 import { toast } from "../lib/toast.js";
 import { useNavigate } from "react-router-dom";
@@ -57,6 +57,8 @@ export default function Flashcards() {
   const [shown, setShown] = useState(false);
   const [qcm, setQcm] = useState(null);   // { options:[card,...], picked:null|idx }
   const [swipeClass, setSwipeClass] = useState("");
+  const [flipped, setFlipped] = useState(false);
+  const [sessionStats, setSessionStats] = useState({ ok: 0, again: 0 });
   const touchRef = useRef({ x: 0, y: 0, startX: 0, dx: 0, dy: 0 });
 
   const navigate = useNavigate();
@@ -121,13 +123,25 @@ export default function Flashcards() {
 
   // Session done: idx ran past the end of the snapshot queue.
   if (idx >= queue.length) {
+    const streak = touchStreak();
+    const total = sessionStats.ok + sessionStats.again;
+    const pct = total ? Math.round((sessionStats.ok / total) * 100) : 0;
     return (
       <div className="flashcards">
         {header}
-        <div className="empty">
-          <h2>🎉 Session terminée</h2>
-          <p>{queue.length} carte{queue.length > 1 ? "s" : ""} révisée{queue.length > 1 ? "s" : ""} dans « {tag} ».</p>
-          <button className="test-btn" style={{ marginTop: 16, width: "auto", padding: "10px 20px" }} onClick={() => { setIdx(0); }}>↺ Rejouer cette session</button>
+        <div className="session-done">
+          <div className="session-done-icon">🎉</div>
+          <h2>Session terminée !</h2>
+          {streak > 0 && <p className="streak-line">🔥 Série : <strong>{streak} jour{streak > 1 ? "s" : ""}</strong></p>}
+          <div className="session-stats">
+            <div className="stat ok"><span className="stat-n">{sessionStats.ok}</span><span className="stat-l">Bien</span></div>
+            <div className="stat pct"><span className="stat-n">{pct}%</span><span className="stat-l">Réussite</span></div>
+            <div className="stat again"><span className="stat-n">{sessionStats.again}</span><span className="stat-l">À revoir</span></div>
+          </div>
+          <div className="session-done-actions">
+            <button className="done-btn-primary" onClick={() => { setIdx(0); setSessionStats({ ok: 0, again: 0 }); }}>↺ Rejouer</button>
+            <a className="done-btn-secondary" href="/">← Accueil</a>
+          </div>
         </div>
       </div>
     );
@@ -143,6 +157,8 @@ export default function Flashcards() {
     setSrs(updated);
     saveSrs(updated);
     setShown(false);
+    setFlipped(false);
+    setSessionStats(s => quality === 0 ? { ...s, again: s.again + 1 } : { ...s, ok: s.ok + 1 });
     setIdx(i => i + 1);
   }
 
@@ -220,13 +236,18 @@ export default function Flashcards() {
     );
   }
 
+  const handleReveal = () => {
+    if (!shown) { setFlipped(true); speakSafe(c.front); }
+    setShown(s => !s);
+  };
+
   return (
     <div className="flashcards">
       {header}
       <ProgressBar current={idx} total={queue.length} />
       <div
         className={`card ${swipeClass}`}
-        onClick={() => setShown(s => !s)}
+        onClick={handleReveal}
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -237,7 +258,7 @@ export default function Flashcards() {
           <button className="speak" onClick={(e) => { e.stopPropagation(); speakSafe(c.front); }}>🔊</button>
         </div>
         {shown && (
-          <div className="back">
+          <div className={`back${flipped ? " flip-in" : ""}`}>
             <span className="lang-tag">FR</span>
             <span className="text">{c.back}</span>
           </div>
@@ -245,11 +266,9 @@ export default function Flashcards() {
         {!shown && <p className="tap-hint">Tape pour voir · Swipe ← à revoir / → OK</p>}
       </div>
       {shown && (
-        <div className="rate">
-          <button onClick={() => rate(0)}>😖 À revoir</button>
-          <button onClick={() => rate(1)}>🤔 Dur</button>
-          <button onClick={() => rate(2)}>🙂 OK</button>
-          <button onClick={() => rate(3)}>😎 Facile</button>
+        <div className="rate-2">
+          <button className="rate-again" onClick={() => rate(0)}>↩ Encore</button>
+          <button className="rate-ok" onClick={() => rate(2)}>✓ OK</button>
         </div>
       )}
       <p className="progress">{idx}/{queue.length} dans cette session</p>

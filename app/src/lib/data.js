@@ -33,12 +33,36 @@ export function importSrs(json) {
   saveSrs(data);
 }
 
-export function countDueCards(cards, srs) {
+const MAX_NEW_PER_SESSION = 20;
+
+export function countSessionCards(cards, srs) {
   const now = Date.now();
-  return cards.filter(c => {
-    const state = srs[cardId(c)] || {};
-    return !state.due || state.due <= now || state.reps === undefined;
-  }).length;
+  const all = cards.map(c => ({ state: srs[cardId(c)] || {} }));
+  const due = all.filter(x => x.state.due && x.state.due <= now && x.state.reps !== undefined).length;
+  const newCount = Math.min(all.filter(x => !x.state.due && x.state.reps === undefined).length, MAX_NEW_PER_SESSION);
+  return due + newCount;
+}
+
+export function getStreak() {
+  try {
+    const s = JSON.parse(localStorage.getItem("norsk.streak") || "{}");
+    const today = new Date().toISOString().slice(0, 10);
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    if (s.date === today || s.date === yesterday) return s.count || 0;
+    return 0;
+  } catch { return 0; }
+}
+
+export function touchStreak() {
+  const today = new Date().toISOString().slice(0, 10);
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  try {
+    const s = JSON.parse(localStorage.getItem("norsk.streak") || "{}");
+    if (s.date === today) return s.count || 1;
+    const count = s.date === yesterday ? (s.count || 0) + 1 : 1;
+    localStorage.setItem("norsk.streak", JSON.stringify({ date: today, count }));
+    return count;
+  } catch { return 1; }
 }
 
 export function cardId(card) {

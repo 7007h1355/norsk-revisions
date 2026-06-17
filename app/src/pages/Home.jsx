@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { loadIndex } from "../lib/data.js";
+import { loadIndex, getStreak } from "../lib/data.js";
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -18,10 +18,18 @@ export default function Home() {
   );
 
   const recaps = data.fiches.filter(f => f.kind === "recap");
-  const lessons = data.fiches.filter(f => f.kind !== "recap");
+  const allLessons = data.fiches.filter(f => f.kind !== "recap");
+  const lessons = [
+    ...allLessons.filter(f => !/^corrig/i.test(f.title)),
+    ...allLessons.filter(f => /^corrig/i.test(f.title)),
+  ];
+  const streak = getStreak();
 
   return (
     <div className="fiches-list">
+      {streak > 0 && (
+        <div className="streak-banner">🔥 Série en cours : <strong>{streak} jour{streak > 1 ? "s" : ""}</strong></div>
+      )}
       {recaps.length > 0 && (
         <>
           <h2>Récapitulatifs</h2>

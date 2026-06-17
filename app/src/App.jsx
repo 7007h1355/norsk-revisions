@@ -6,7 +6,7 @@ import Flashcards from "./pages/Flashcards.jsx";
 import Search from "./pages/Search.jsx";
 import Settings from "./pages/Settings.jsx";
 import { isNative, getNorskVoices, speak } from "./lib/tts.js";
-import { loadFlashcards, loadSrs, countDueCards } from "./lib/data.js";
+import { loadFlashcards, loadSrs, countSessionCards, getStreak } from "./lib/data.js";
 import { App as CapApp } from "@capacitor/app";
 
 const ONBOARDING_KEY = "norsk.voice_onboarding";
@@ -147,23 +147,47 @@ function BackButtonHandler() {
   return null;
 }
 
+const ONBOARDING_SRS_KEY = "norsk.onboarding.srs.v1";
+
+function SrsOnboarding() {
+  const [show, setShow] = useState(() => !localStorage.getItem(ONBOARDING_SRS_KEY));
+  if (!show) return null;
+  const dismiss = () => { localStorage.setItem(ONBOARDING_SRS_KEY, "done"); setShow(false); };
+  return (
+    <div className="install-modal-backdrop">
+      <div className="install-modal">
+        <div className="vo-icon">🧠</div>
+        <h3>Comment ça marche ?</h3>
+        <ul style={{ paddingLeft: 20, margin: "12px 0" }}>
+          <li style={{ marginBottom: 8 }}><strong>20 cartes/jour</strong> — pas plus, pour ancrer sans saturer</li>
+          <li style={{ marginBottom: 8 }}><strong>Répétition espacée</strong> — les cartes ratées reviennent plus souvent, les faciles moins</li>
+          <li style={{ marginBottom: 8 }}><strong>Régularité &gt; volume</strong> — 10 min par jour &gt; 2h le dimanche</li>
+        </ul>
+        <button className="vo-done" onClick={dismiss}>C'est parti ! 🇳🇴</button>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [due, setDue] = useState(0);
+  const [streak, setStreak] = useState(getStreak);
   const { pathname } = useLocation();
 
   useEffect(() => {
-    loadFlashcards().then(cards => setDue(countDueCards(cards, loadSrs()))).catch(() => {});
+    loadFlashcards().then(cards => setDue(countSessionCards(cards, loadSrs()))).catch(() => {});
+    setStreak(getStreak());
   }, [pathname]);
 
   return (
     <div className="app">
+      <SrsOnboarding />
       <VoiceOnboarding />
       <ScrollToTop />
       <BackButtonHandler />
       <header className="topbar">
         <h1>🇳🇴 Norsk</h1>
         <InstallPrompt />
-        <NavLink to="/settings" className="settings-btn" title="Paramètres voix">⚙️</NavLink>
       </header>
       <main>
         <Routes>
@@ -186,7 +210,12 @@ export default function App() {
         </NavLink>
         <NavLink to="/search">
           <span className="ic">🔍</span>
-          <span>Recherche</span>
+          <span>Chercher</span>
+        </NavLink>
+        <NavLink to="/settings">
+          <span className="ic">⚙️</span>
+          <span>Réglages</span>
+          {streak > 0 && <span className="streak-chip">🔥{streak}</span>}
         </NavLink>
       </nav>
     </div>
