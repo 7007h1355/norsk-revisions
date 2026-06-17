@@ -45,10 +45,20 @@ export default function Search() {
         spellCheck="false"
         enterKeyHint="search"
       />
+      {!q && (
+        <div className="search-empty">
+          <p>Cherche un mot norvégien, une règle grammaticale, une expression…</p>
+          <div className="search-hints">
+            {["snakke", "ikke", "pronoms", "conjugaison", "høflig"].map(w => (
+              <button key={w} className="search-hint-chip" onClick={() => setQ(w)}>{w}</button>
+            ))}
+          </div>
+        </div>
+      )}
       {q && <p className="meta">{results.length} résultat{results.length > 1 ? "s" : ""}</p>}
       <ul>
-        {results.map(r => (
-          <li key={r.slug + r.snippet}>
+        {results.map((r, i) => (
+          <li key={r.slug + "-" + i}>
             <Link to={`/fiche/${r.slug}`}>
               <strong>{r.title}</strong>
               <small>…{r.snippet}…</small>

@@ -1,98 +1,9 @@
-// Norwegian TTS with robust voice loading + Google Translate fallback.
-//
-// Web Speech API quirks handled:
-// - getVoices() returns [] before voices are loaded (Chrome: voiceschanged event)
-// - Different OSes ship different Norwegian voice IDs (nb-NO vs no-NO vs nn-NO)
-// - On Android, Google's "Norwegian (Bokmål)" voice is high quality
-// - On iOS/macOS, "Nora" is the bundled bokmål voice
-// - If no Norwegian voice exists locally, fall back to Google Translate TTS via <audio>
+import { TextToSpeech } from "@capacitor-community/text-to-speech";
+import { Capacitor } from "@capacitor/core";
 
-const PREF_KEY = "norsk.voice";
-const ENGINE_KEY = "norsk.tts_engine";  // "speech" | "google"
 const RATE_KEY = "norsk.tts_rate";
 
-let cached = null;
-let pending = null;
-
-function isNorsk(v) {
-  return /^(nb|nn|no)([-_]|$)/i.test(v.lang) || /norwegian|norvég|norsk|bokmål|bokmal|nynorsk/i.test(v.name);
-}
-
-function scoreVoice(v) {
-  // Higher = better
-  let s = 0;
-  if (/^nb/i.test(v.lang)) s += 100;          // bokmål first
-  else if (/^no/i.test(v.lang)) s += 80;
-  else if (/^nn/i.test(v.lang)) s += 60;
-  if (/google/i.test(v.name)) s += 30;        // Google TTS engines are usually best
-  if (/microsoft/i.test(v.name)) s += 20;
-  if (/enhanced|premium|natural|neural/i.test(v.name)) s += 15;
-  if (v.localService) s += 5;                 // local = no latency
-  if (/nora|finn|liv/i.test(v.name)) s += 10; // known good Apple/MS voice names
-  return s;
-}
-
-export function loadVoices() {
-  if (cached) return Promise.resolve(cached);
-  if (pending) return pending;
-  pending = new Promise((resolve) => {
-    const synth = window.speechSynthesis;
-    if (!synth) { cached = []; resolve(cached); return; }
-
-    const tryGet = () => {
-      const v = synth.getVoices();
-      if (v && v.length) {
-        cached = v;
-        resolve(v);
-        return true;
-      }
-      return false;
-    };
-
-    if (tryGet()) return;
-
-    let done = false;
-    const finish = () => {
-      if (done) return;
-      done = true;
-      synth.removeEventListener?.("voiceschanged", onChange);
-      if (!cached) { cached = synth.getVoices() || []; }
-      resolve(cached);
-    };
-    const onChange = () => { if (tryGet()) finish(); };
-    synth.addEventListener?.("voiceschanged", onChange);
-    // Safety net: some browsers never fire voiceschanged.
-    setTimeout(finish, 2500);
-  });
-  return pending;
-}
-
-export async function getNorskVoices() {
-  const all = await loadVoices();
-  const norsk = all.filter(isNorsk).sort((a, b) => scoreVoice(b) - scoreVoice(a));
-  return { norsk, all };
-}
-
-export async function pickBestNorskVoice() {
-  const { norsk } = await getNorskVoices();
-  const saved = localStorage.getItem(PREF_KEY);
-  if (saved) {
-    const match = norsk.find(v => v.voiceURI === saved || v.name === saved);
-    if (match) return match;
-  }
-  return norsk[0] || null;
-}
-
-export function setPreferredVoice(voiceURI) {
-  if (voiceURI) localStorage.setItem(PREF_KEY, voiceURI);
-  else localStorage.removeItem(PREF_KEY);
-}
-
-export function getEngine() {
-  // Default to "auto": pick the best engine at speak time based on local voice availability.
-  return localStorage.getItem(ENGINE_KEY) || "auto";
-}
-export function setEngine(e) { localStorage.setItem(ENGINE_KEY, e); }
+export const isNative = Capacitor.isNativePlatform();
 
 export function getRate() {
   const r = parseFloat(localStorage.getItem(RATE_KEY) || "0.85");
@@ -100,42 +11,33 @@ export function getRate() {
 }
 export function setRate(r) { localStorage.setItem(RATE_KEY, String(r)); }
 
-let currentAudio = null;
+let cachedNorskVoices = null;
 
-function speakViaGoogle(text, rate) {
-  // Unofficial endpoint. Often blocked by CORS / User-Agent checks in some browsers.
-  // Caller is responsible for surfacing failures to the user.
-  const chunk = text.slice(0, 200);
-  const url = `https://translate.google.com/translate_tts?ie=UTF-8&q=${encodeURIComponent(chunk)}&tl=no&client=tw-ob`;
-  try { currentAudio?.pause(); } catch {}
-  const a = new Audio(url);
-  a.playbackRate = Math.max(0.5, Math.min(2, rate));
-  currentAudio = a;
-  return new Promise((resolve, reject) => {
-    a.addEventListener("error", () => reject(new Error("Google TTS bloqué par le navigateur (CORS).")));
-    a.addEventListener("ended", () => resolve());
-    a.play().catch(reject);
-  });
-}
-
-function speakViaSpeech(text, voice, rate) {
-  const synth = window.speechSynthesis;
-  if (!synth) return Promise.reject(new Error("no speechSynthesis"));
-  synth.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  if (voice) {
-    u.voice = voice;
-    u.lang = voice.lang;
-  } else {
-    u.lang = "nb-NO";
+export async function getNorskVoices() {
+  if (cachedNorskVoices) return cachedNorskVoices;
+  if (!isNative) {
+    const all = await loadWebVoices();
+    const norsk = all.filter(isNorskVoice).sort((a, b) => scoreVoice(b) - scoreVoice(a));
+    cachedNorskVoices = { norsk, all };
+    return cachedNorskVoices;
   }
-  u.rate = rate;
-  u.pitch = 1;
-  synth.speak(u);
-  return Promise.resolve();
+  try {
+    const { languages } = await TextToSpeech.getSupportedLanguages();
+    const norsk = (languages || []).filter(l => /^(nb|nn|no)/i.test(l))
+      .map(l => ({ name: l, lang: l, voiceURI: l, localService: true }));
+    cachedNorskVoices = { norsk, all: norsk };
+    return cachedNorskVoices;
+  } catch {
+    cachedNorskVoices = { norsk: [], all: [] };
+    return cachedNorskVoices;
+  }
 }
 
-// Custom error so callers can show a clear UI when no Norwegian voice exists.
+async function pickBestNorskVoice() {
+  const { norsk } = await getNorskVoices();
+  return norsk[0] || null;
+}
+
 export class NoNorskVoiceError extends Error {
   constructor() {
     super("Aucune voix norvégienne disponible sur cet appareil");
@@ -145,21 +47,82 @@ export class NoNorskVoiceError extends Error {
 
 export async function speak(text) {
   if (!text) return;
-  const engine = getEngine();
   const rate = getRate();
 
-  if (engine === "google") {
-    return speakViaGoogle(text, rate);
+  if (isNative) {
+    return TextToSpeech.speak({
+      text: text.slice(0, 4000),
+      lang: "nb-NO",
+      rate: Math.max(0.1, Math.min(2.0, rate)),
+      pitch: 1.0,
+      volume: 1.0,
+      category: "ambient",
+    });
   }
 
-  // Default ("auto") and "speech" both require a real Norwegian voice.
-  // Mispronouncing with a French/English voice ("hache-é-i" for "Hei") is worse than no audio.
+  // Web fallback
   const voice = await pickBestNorskVoice();
   if (!voice) throw new NoNorskVoiceError();
   return speakViaSpeech(text, voice, rate);
 }
 
 export function stopSpeaking() {
+  if (isNative) { TextToSpeech.stop().catch(() => {}); return; }
   try { window.speechSynthesis?.cancel(); } catch {}
-  try { currentAudio?.pause(); } catch {}
+}
+
+// ── Web Speech helpers (non-native only) ────────────────────────────────────
+
+let cached = null;
+let pending = null;
+
+function isNorskVoice(v) {
+  return /^(nb|nn|no)([-_]|$)/i.test(v.lang) || /norwegian|norvég|norsk|bokmål|bokmal|nynorsk/i.test(v.name);
+}
+
+function scoreVoice(v) {
+  let s = 0;
+  if (/^nb/i.test(v.lang)) s += 100;
+  else if (/^no/i.test(v.lang)) s += 80;
+  else if (/^nn/i.test(v.lang)) s += 60;
+  if (/google/i.test(v.name)) s += 30;
+  if (/samsung/i.test(v.name)) s += 25;
+  if (/microsoft/i.test(v.name)) s += 20;
+  if (/enhanced|premium|natural|neural/i.test(v.name)) s += 15;
+  if (v.localService) s += 5;
+  if (/nora|finn|liv/i.test(v.name)) s += 10;
+  return s;
+}
+
+function loadWebVoices() {
+  if (cached) return Promise.resolve(cached);
+  if (pending) return pending;
+  pending = new Promise((resolve) => {
+    const synth = window.speechSynthesis;
+    if (!synth) { cached = []; resolve(cached); return; }
+    const tryGet = () => { const v = synth.getVoices(); if (v?.length) { cached = v; resolve(v); return true; } return false; };
+    if (tryGet()) return;
+    let done = false;
+    const finish = () => { if (done) return; done = true; synth.removeEventListener?.("voiceschanged", onChange); cached = synth.getVoices() || []; resolve(cached); };
+    const onChange = () => { if (tryGet()) finish(); };
+    synth.addEventListener?.("voiceschanged", onChange);
+    setTimeout(finish, 2500);
+  });
+  return pending;
+}
+
+function speakViaSpeech(text, voice, rate) {
+  const synth = window.speechSynthesis;
+  if (!synth) return Promise.reject(new Error("no speechSynthesis"));
+  synth.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.voice = voice;
+  u.lang = voice.lang;
+  u.rate = rate;
+  u.pitch = 1;
+  return new Promise((resolve, reject) => {
+    u.onend = () => resolve();
+    u.onerror = (e) => reject(new Error(e.error || "speech error"));
+    synth.speak(u);
+  });
 }

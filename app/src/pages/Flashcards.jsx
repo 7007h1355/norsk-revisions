@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { loadFlashcards, loadSrs, saveSrs, cardId, nextReview } from "../lib/data.js";
-import { speak, loadVoices, NoNorskVoiceError } from "../lib/tts.js";
+import { speak, NoNorskVoiceError } from "../lib/tts.js";
 import { toast } from "../lib/toast.js";
 import { useNavigate } from "react-router-dom";
 
@@ -60,10 +60,9 @@ export default function Flashcards() {
   const touchRef = useRef({ x: 0, y: 0, startX: 0, dx: 0, dy: 0 });
 
   const navigate = useNavigate();
-  const speakSafe = safeSpeak(navigate);
+  const speakSafe = useCallback(safeSpeak(navigate), [navigate]);
 
   useEffect(() => { loadFlashcards().then(setCards).catch(() => setCards([])); }, []);
-  useEffect(() => { loadVoices(); }, []);   // warm up voice list
   useEffect(() => { localStorage.setItem("norsk.mode", mode); }, [mode]);
 
   const tags = useMemo(() => {
@@ -72,25 +71,29 @@ export default function Flashcards() {
     return ["all", ...Array.from(s).sort()];
   }, [cards]);
 
+  const MAX_NEW_PER_SESSION = 20;
+
   // Build the session queue ONCE per (cards, tag) change. Including `srs` in the deps
   // would cause the queue to rebuild after every rate(), filtering out the card you just
   // graded and shifting `idx` so subsequent cards get skipped.
   const queue = useMemo(() => {
     if (!cards) return [];
     const now = Date.now();
-    const built = cards
+    const filtered = cards
       .filter(c => tag === "all" || c.tag === tag)
-      .map(c => ({ card: c, state: srs[cardId(c)] || {} }))
-      .filter(x => !x.state.due || x.state.due <= now || x.state.reps === undefined)
+      .map(c => ({ card: c, state: srs[cardId(c)] || {} }));
+    const due = filtered.filter(x => x.state.due && x.state.due <= now && x.state.reps !== undefined)
       .sort((a, b) => (a.state.due || 0) - (b.state.due || 0));
-    return built;
+    const newCards = filtered.filter(x => !x.state.due && x.state.reps === undefined)
+      .slice(0, MAX_NEW_PER_SESSION);
+    return [...due, ...newCards];
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cards, tag]);
 
   // (re)build QCM options when card changes in qcm mode
   useEffect(() => {
-    if (mode !== "qcm" || !queue.length || !cards) { setQcm(null); return; }
-    const cur = queue[idx % queue.length];
+    if (mode !== "qcm" || !queue.length || !cards || idx >= queue.length) { setQcm(null); return; }
+    const cur = queue[idx];
     const distractors = pickDistractors(cur.card, cards, 3);
     const options = shuffle([cur.card, ...distractors]);
     setQcm({ options, picked: null });
@@ -144,7 +147,7 @@ export default function Flashcards() {
   }
 
   function onPick(i) {
-    if (qcm.picked !== null) return;
+    if (!qcm || qcm.picked !== null) return;
     const correct = qcm.options[i].back === c.back;
     vibrate(correct ? 25 : [40, 40, 80]);
     setQcm(q => ({ ...q, picked: i }));
@@ -203,7 +206,7 @@ export default function Flashcards() {
             })}
           </div>
         </div>
-        {qcm?.picked !== null && qcm?.picked !== undefined && (
+        {qcm?.picked !== null && (
           <div className="rate">
             <button onClick={() => rate(0)}>😖 À revoir</button>
             <button onClick={() => rate(1)}>🤔 Dur</button>
@@ -211,7 +214,8 @@ export default function Flashcards() {
             <button onClick={() => rate(3)}>😎 Facile</button>
           </div>
         )}
-        <p className="progress">{queue.length} à réviser · {cards.length} total</p>
+        <ProgressBar current={idx} total={queue.length} />
+      <p className="progress">{idx}/{queue.length} dans cette session</p>
       </div>
     );
   }
@@ -219,6 +223,7 @@ export default function Flashcards() {
   return (
     <div className="flashcards">
       {header}
+      <ProgressBar current={idx} total={queue.length} />
       <div
         className={`card ${swipeClass}`}
         onClick={() => setShown(s => !s)}
@@ -247,7 +252,17 @@ export default function Flashcards() {
           <button onClick={() => rate(3)}>😎 Facile</button>
         </div>
       )}
-      <p className="progress">{queue.length} à réviser · {cards.length} total</p>
+      <p className="progress">{idx}/{queue.length} dans cette session</p>
+    </div>
+  );
+}
+
+function ProgressBar({ current, total }) {
+  if (!total) return null;
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="session-progress">
+      <div className="session-progress-bar" style={{ width: `${pct}%` }} />
     </div>
   );
 }

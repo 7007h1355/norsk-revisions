@@ -1,10 +1,64 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, NavLink, useLocation } from "react-router-dom";
+import { Routes, Route, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import FicheView from "./pages/FicheView.jsx";
 import Flashcards from "./pages/Flashcards.jsx";
 import Search from "./pages/Search.jsx";
 import Settings from "./pages/Settings.jsx";
+import { isNative, getNorskVoices, speak } from "./lib/tts.js";
+import { loadFlashcards, loadSrs, countDueCards } from "./lib/data.js";
+import { App as CapApp } from "@capacitor/app";
+
+const ONBOARDING_KEY = "norsk.voice_onboarding";
+const isAndroid = /Android/i.test(navigator.userAgent);
+
+function VoiceOnboarding() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (isNative) return;          // native APK: TTS works directly, no onboarding needed
+    if (localStorage.getItem(ONBOARDING_KEY)) return;
+    if (!isAndroid) return;
+    getNorskVoices().then(({ norsk }) => {
+      if (norsk.length === 0) setShow(true);
+    });
+  }, []);
+
+  const dismiss = (done) => {
+    localStorage.setItem(ONBOARDING_KEY, done ? "done" : "skipped");
+    setShow(false);
+    if (done) speak("Hei! God uttale nå.").catch(() => {});
+  };
+
+  if (!show) return null;
+
+  return (
+    <div className="install-modal-backdrop">
+      <div className="install-modal voice-onboarding">
+        <div className="vo-icon">🔊</div>
+        <h3>Activer la voix norvégienne</h3>
+        <p className="vo-sub">Sans voix nb-NO installée, la prononciation est désactivée.</p>
+        <a
+          className="vo-settings-btn"
+          href="intent:#Intent;action=android.settings.TTS_SETTINGS;end"
+        >
+          ⚙️ Ouvrir les paramètres vocaux
+        </a>
+        <ol>
+          <li>Moteur favori → <strong>Google</strong> → icône ⚙️</li>
+          <li>→ <strong>Installer données vocales</strong></li>
+          <li>Cherche <strong>Norsk (Norge)</strong> → télécharger</li>
+          <li>Reviens ici et appuie sur <strong>C'est fait !</strong></li>
+        </ol>
+        <p className="hint">Reviens dans l'app après le téléchargement et appuie sur "C'est fait !".</p>
+        <div className="vo-actions">
+          <button className="vo-done" onClick={() => dismiss(true)}>✅ C'est fait !</button>
+          <button className="vo-skip" onClick={() => dismiss(false)}>Ignorer</button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function InstallPrompt() {
   const [deferred, setDeferred] = useState(null);
@@ -76,10 +130,36 @@ function ScrollToTop() {
   return null;
 }
 
+function BackButtonHandler() {
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (!isNative) return;
+    const listener = CapApp.addListener("backButton", () => {
+      if (pathname === "/") {
+        CapApp.exitApp();
+      } else {
+        navigate(-1);
+      }
+    });
+    return () => { listener.then(h => h.remove()); };
+  }, [pathname, navigate]);
+  return null;
+}
+
 export default function App() {
+  const [due, setDue] = useState(0);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    loadFlashcards().then(cards => setDue(countDueCards(cards, loadSrs()))).catch(() => {});
+  }, [pathname]);
+
   return (
     <div className="app">
+      <VoiceOnboarding />
       <ScrollToTop />
+      <BackButtonHandler />
       <header className="topbar">
         <h1>🇳🇴 Norsk</h1>
         <InstallPrompt />
@@ -102,6 +182,7 @@ export default function App() {
         <NavLink to="/flashcards">
           <span className="ic">🎯</span>
           <span>Cartes</span>
+          {due > 0 && <span className="badge">{due}</span>}
         </NavLink>
         <NavLink to="/search">
           <span className="ic">🔍</span>

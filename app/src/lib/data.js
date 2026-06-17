@@ -26,13 +26,26 @@ export function loadSrs() {
   catch { return {}; }
 }
 export function saveSrs(s) { localStorage.setItem(STORE_KEY, JSON.stringify(s)); }
+export function exportSrs() { return JSON.stringify(loadSrs(), null, 2); }
+export function importSrs(json) {
+  const data = JSON.parse(json);
+  if (typeof data !== "object" || Array.isArray(data)) throw new Error("Format invalide");
+  saveSrs(data);
+}
+
+export function countDueCards(cards, srs) {
+  const now = Date.now();
+  return cards.filter(c => {
+    const state = srs[cardId(c)] || {};
+    return !state.due || state.due <= now || state.reps === undefined;
+  }).length;
+}
 
 export function cardId(card) {
   // Stable across renames/dedupes: keyed on the norsk word + the FR primary,
   // independent of which lesson contributed it. Renaming a source file or
   // re-merging duplicates therefore preserves the user's SRS progress.
-  const front = (card.front || "").trim().toLowerCase();
-  // FR primary = before first '/' or '(' (matches scripts/build_fiches.py primary_fr)
+  const front = (card.front || "").split(/[/(]/)[0].trim().toLowerCase();
   const back = (card.back || "").split(/[/(]/)[0].trim().toLowerCase();
   return `${front}::${back}`;
 }
